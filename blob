@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的前端学习站点</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 4h6l8 13L24 4h6L16 29z' fill='%2342b883'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f8fc; --card:#ffffff; --ink:#1f2937; --sub:#6b7280;
+    --line:#e5e9f2; --brand:#4c6ef5; --brand2:#7c3aed;
+    --vue:#42b883; --bs:#7952b3; --hm:#d33a2c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh; font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:
+      radial-gradient(900px 500px at 12% -10%, rgba(76,110,245,.18), transparent 60%),
+      radial-gradient(800px 460px at 92% 8%, rgba(124,58,237,.16), transparent 60%),
+      radial-gradient(700px 420px at 50% 110%, rgba(66,184,131,.14), transparent 60%),
+      var(--bg);
+    color:var(--ink); display:flex; flex-direction:column; align-items:center; padding:56px 20px 40px;
+  }
+  .hero{text-align:center;max-width:760px}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    color:var(--brand);background:#fff;border:1px solid var(--line);
+    padding:6px 14px;border-radius:999px;box-shadow:0 2px 10px rgba(31,41,55,.06);margin-bottom:20px;
+  }
+  .badge i{width:7px;height:7px;border-radius:50%;background:var(--vue);box-shadow:0 0 0 4px rgba(66,184,131,.18)}
+  h1{font-size:clamp(30px,5vw,44px);line-height:1.2;letter-spacing:-.5px}
+  h1 span{background:linear-gradient(120deg,var(--brand),var(--brand2) 55%,var(--vue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{margin-top:14px;color:var(--sub);font-size:clamp(14px,2vw,17px);line-height:1.75}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;max-width:1080px;margin-top:44px}
+  .card{
+    position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:26px 24px 22px;text-decoration:none;color:inherit;overflow:hidden;
+    box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 32px rgba(16,24,40,.06);
+    transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,border-color .22s;
+    display:flex;flex-direction:column;min-height:210px;
+  }
+  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--c,var(--brand))}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(16,24,40,.13);border-color:#d8dfeb}
+  .card:hover .go{transform:translateX(4px)}
+  .ico{
+    width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;
+    background:color-mix(in srgb,var(--c) 12%,#fff);border:1px solid color-mix(in srgb,var(--c) 22%,#fff);
+    margin-bottom:16px;
+  }
+  .card h2{font-size:19px;line-height:1.35}
+  .card p{margin-top:8px;color:var(--sub);font-size:13.5px;line-height:1.7;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 16px}
+  .tag{font-size:11.5px;color:var(--c);background:color-mix(in srgb,var(--c) 10%,#fff);border:1px solid color-mix(in srgb,var(--c) 20%,#fff);padding:3px 9px;border-radius:999px;font-weight:600}
+  .go{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--c);transition:transform .22s}
+  .foot{margin-top:40px;color:#9aa3b2;font-size:12.5px;text-align:center;line-height:1.8}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge"><i></i>GitHub Pages · 在线学习站</div>
+    <h1>我的<span>前端学习</span>站点</h1>
+    <p class="lead">三个自学网页项目，点开即学、无需安装。全部托管在 GitHub Pages 上。</p>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="./bootstrap-learn/" style="--c:var(--bs)">
+      <div class="ico">🅱️</div>
+      <h2>Bootstrap 可视化学习手册</h2>
+      <p>从栅格、组件到实战页面，边看边改的交互式教程，内置在线代码游乐场。</p>
+      <div class="tags"><span class="tag">Bootstrap 5.3</span><span class="tag">交互式</span><span class="tag">8 章</span></div>
+      <span class="go">开始学习 →</span>
+    </a>
+
+    <a class="card" href="./harmonyos-lab/" style="--c:var(--hm)">
+      <div class="ico">🚀</div>
+      <h2>HarmonyOS 学习实验室</h2>
+      <p>环境搭建、ArkTS 入门到实战案例，配有可运行的演示与常见问题速查。</p>
+      <div class="tags"><span class="tag">HarmonyOS</span><span class="tag">ArkTS</span><span class="tag">实操</span></div>
+      <span class="go">开始学习 →</span>
+    </a>
+
+    <a class="card" href="./vue3-handbook/" style="--c:var(--vue)">
+      <div class="ico">💚</div>
+      <h2>Vue3 小白可视化学习手册</h2>
+      <p>以「原生 JS vs Vue」对照讲解，配合大量可运行示例，从零到项目实战。</p>
+      <div class="tags"><span class="tag">Vue 3</span><span class="tag">可运行示例</span><span class="tag">对照教学</span></div>
+      <span class="go">开始学习 →</span>
+    </a>
+  </div>
+
+  <p class="foot">Powered by GitHub Pages · 直接点击上方卡片即可打开对应学习页</p>
+</body>
+</html>
