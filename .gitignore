@@ -1,0 +1,6 @@
+# 不发布这些文件/目录到 Pages
+tools/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

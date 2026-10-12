@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap 5 零基础学习手册 · 每个知识点都能亲手体验</title>
+<meta name="description" content="配套《Bootstrap基础教程（第3版）》的交互式学习手册：8 章 + 4 个附录/专题，每个知识点都有可运行的效果预览、关键词白话解释、原生写法对照和在线游乐场。">
+<link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+<link rel="stylesheet" href="assets/vendor/bootstrap-icons.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ======================= 顶栏 ======================= -->
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn d-lg-none" id="btnMenu" type="button" aria-label="打开目录">
+      <i class="bi bi-list"></i>
+    </button>
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#7952B3"></rect>
+        <text x="16" y="22.5" text-anchor="middle" font-size="18" font-weight="700" font-family="Georgia, 'Times New Roman', serif" fill="#ffffff">B</text>
+      </svg>
+      <span class="brand-text">
+        <strong>Bootstrap 5 学习手册</strong>
+        <small>零基础 · 每一章都能动手试</small>
+      </span>
+    </a>
+
+    <div class="topbar-progress d-none d-md-flex">
+      <div class="progress-thin"><div class="progress-thin-bar" id="progressBar" style="width:0%"></div></div>
+      <span class="progress-text" id="progressText">已掌握 0 / 0</span>
+    </div>
+
+    <div class="topbar-actions">
+      <a class="text-btn d-none d-xl-inline-flex" href="#glossary" title="全站类名、属性、术语的白话解释"><i class="bi bi-journal-text"></i><span>关键词词典</span></a>
+      <a class="text-btn d-none d-lg-inline-flex" href="#vs" title="把 Bootstrap 和你已会的 HTML/CSS/JS 并排对照"><i class="bi bi-arrow-left-right"></i><span>原生对照</span></a>
+      <button class="text-btn d-none d-sm-inline-flex" id="btnExpandAll" type="button">
+        <i class="bi bi-code-square"></i><span>展开全部代码</span>
+      </button>
+      <button class="text-btn primary" id="btnPlayground" type="button">
+        <i class="bi bi-play-circle"></i><span>代码游乐场</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="layout" id="top">
+  <!-- ======================= 左侧目录 ======================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="side-search">
+      <i class="bi bi-search"></i>
+      <input type="search" id="navSearch" placeholder="搜索知识点，如：栅格 / 卡片 / 轮播" autocomplete="off">
+      <button class="clear-btn" id="btnClearSearch" type="button" aria-label="清空搜索"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="side-hint" id="sideHint"></div>
+    <nav class="side-nav" id="sideNav" aria-label="章节目录"></nav>
+    <div class="side-foot">
+      <div class="side-progress">
+        <i class="bi bi-award"></i>
+        <span id="sideProgressText">已掌握 0 / 0</span>
+      </div>
+      <button class="link-btn" id="btnResetProgress" type="button">重置学习进度</button>
+      <div class="side-links">
+        <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" rel="noreferrer"><i class="bi bi-book"></i> 官方文档</a>
+        <a href="https://github.com/twbs/bootstrap" target="_blank" rel="noreferrer"><i class="bi bi-github"></i> GitHub</a>
+      </div>
+    </div>
+  </aside>
+  <div class="side-backdrop" id="sideBackdrop"></div>
+
+  <!-- ======================= 正文 ======================= -->
+  <main class="content">
+    <section class="hero">
+      <div class="hero-chips">
+        <span class="chip"><i class="bi bi-patch-check-fill"></i> 基于 Bootstrap v5.3.8 实时运行</span>
+        <span class="chip"><i class="bi bi-journal-bookmark"></i> 配套《Bootstrap基础教程（第3版）》</span>
+        <span class="chip"><i class="bi bi-arrow-left-right"></i> 新增：原生对照专区 + 关键词词典</span>
+        <span class="chip"><i class="bi bi-wifi-off"></i> 资源已下载到本地，断网也能学</span>
+      </div>
+      <h1>Bootstrap 零基础通关手册</h1>
+      <p class="hero-lead">
+        你是小白也没关系。这本书里的 <strong>8 章正文 + 4 个附录/专题</strong>，
+        我把每一个知识点都做成了<strong>"现在就能点、能改、能运行"</strong>的活例子：
+        左边挑知识点 → 中间看效果 → 代码一键复制 → 去游乐场自己改一改。<br>
+        <strong>学过 HTML / CSS / JavaScript？先看「附录 D · 对照专区」</strong>——把你会的写法和 Bootstrap 并排对照；
+        任何看不懂的类名、属性，点知识点下方的<strong>「关键词」小标签</strong>，
+        直达「附录 C · 关键词词典」看白话解释。看懂不算会，改一次才算真的记住。
+      </p>
+
+      <div class="hero-stats" id="heroStats">
+        <div class="stat"><b id="statKp">–</b><span>个知识点</span></div>
+        <div class="stat"><b id="statDemo">–</b><span>个可体验示例</span></div>
+        <div class="stat"><b id="statGloss">–</b><span>条词典词条</span></div>
+        <div class="stat"><b>8+4</b><span>章 + 附录/专题</span></div>
+        <div class="stat"><b>v5.3.8</b><span>最新稳定版</span></div>
+      </div>
+
+      <div class="howto">
+        <div class="howto-card">
+          <div class="howto-num">1</div>
+          <h3>挑一个知识点</h3>
+          <p>用左侧目录，或搜索框直接搜「栅格」「卡片」「轮播」。建议按顺序学，前面的章节是后面的地基。</p>
+        </div>
+        <div class="howto-card">
+          <div class="howto-num">2</div>
+          <h3>看不懂？点「关键词」</h3>
+          <p>每个知识点下方会自动列出它用到的<strong>关键词芯片</strong>（类名、data- 属性），点一下直达词典看白话解释；重要知识点里还有「原生 vs Bootstrap」并排对照块。</p>
+        </div>
+        <div class="howto-card">
+          <div class="howto-num">3</div>
+          <h3>改一改 + 打勾</h3>
+          <p>点「在游乐场改一改」，把代码复制进去随便折腾；弄懂了就勾选「已掌握」，顶部进度条会帮你记录。</p>
+        </div>
+      </div>
+
+      <div class="alert alert-primary d-flex gap-3 hero-alert" role="note">
+        <i class="bi bi-info-circle-fill fs-4"></i>
+        <div>
+          <strong>关于版本：</strong>书中讲的是 Bootstrap 5.x 系列。截至 2026 年 10 月，最新稳定版是 <strong>v5.3.8</strong>，本手册所有示例都在 v5.3.8 上实时运行。
+          5.3 相比早期版本有几个小变化（例如深色导航条推荐用 <code>data-bs-theme="dark"</code> 而不是 <code>.navbar-dark</code>），遇到时我会在知识点里单独提醒。
+        </div>
+      </div>
+
+      <div class="res-grid">
+        <a class="res-card" href="https://getbootstrap.com/" target="_blank" rel="noreferrer">
+          <i class="bi bi-globe2"></i><div><b>Bootstrap 官网</b><small>getbootstrap.com</small></div>
+        </a>
+        <a class="res-card" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" rel="noreferrer">
+          <i class="bi bi-book-half"></i><div><b>官方文档 v5.3</b><small>每个组件的权威说明</small></div>
+        </a>
+        <a class="res-card" href="https://getbootstrap.com/docs/5.3/examples/" target="_blank" rel="noreferrer">
+          <i class="bi bi-window-stack"></i><div><b>官方示例库</b><small>几十个完整页面可抄</small></div>
+        </a>
+        <a class="res-card" href="https://github.com/twbs/bootstrap" target="_blank" rel="noreferrer">
+          <i class="bi bi-github"></i><div><b>GitHub 仓库</b><small>twbs/bootstrap · 17 万+ star</small></div>
+        </a>
+        <a class="res-card" href="https://icons.getbootstrap.com/" target="_blank" rel="noreferrer">
+          <i class="bi bi-emoji-smile"></i><div><b>Bootstrap Icons</b><small>2000+ 免费图标</small></div>
+        </a>
+        <a class="res-card" href="https://bootswatch.com/" target="_blank" rel="noreferrer">
+          <i class="bi bi-palette"></i><div><b>Bootswatch 主题</b><small>免费换皮主题</small></div>
+        </a>
+      </div>
+    </section>
+
+    <div id="chapters"></div>
+
+    <footer class="page-footer">
+      <div>
+        <strong>Bootstrap 5 零基础学习手册</strong>
+        <p>配套《Bootstrap基础教程（第3版）》学习使用 · 示例基于 Bootstrap v5.3.8 + Bootstrap Icons 1.13.1 · 所有资源均为本地文件，可离线使用</p>
+      </div>
+      <div class="page-footer-links">
+        <a href="#top"><i class="bi bi-arrow-up"></i> 回到顶部</a>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<button class="backtop" id="backTop" type="button" aria-label="回到顶部"><i class="bi bi-arrow-up"></i></button>
+
+<!-- ======================= 代码游乐场 ======================= -->
+<div class="offcanvas offcanvas-end pg-panel" tabindex="-1" id="pgPanel" aria-labelledby="pgTitle">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="pgTitle"><i class="bi bi-play-circle me-2"></i>代码游乐场</h5>
+    <div class="pg-head-actions">
+      <select class="form-select form-select-sm" id="pgPreset" aria-label="选择模板">
+        <option value="blank">空白模板</option>
+        <option value="grid" selected>栅格布局</option>
+        <option value="card">卡片列表</option>
+        <option value="form">登录表单</option>
+        <option value="navbar">导航条</option>
+        <option value="buttons">一组按钮</option>
+        <option value="page">迷你落地页</option>
+      </select>
+      <button class="btn btn-sm btn-primary" id="pgRun" type="button"><i class="bi bi-play-fill"></i> 运行</button>
+      <button class="btn btn-sm btn-outline-secondary" id="pgCopy" type="button"><i class="bi bi-clipboard"></i> 复制</button>
+      <button class="btn-close ms-1" type="button" data-bs-dismiss="offcanvas" aria-label="关闭"></button>
+    </div>
+  </div>
+  <div class="offcanvas-body pg-body">
+    <div class="pg-split">
+      <div class="pg-editor">
+        <div class="pg-label">HTML 代码（改这里）</div>
+        <textarea id="pgCode" spellcheck="false"></textarea>
+      </div>
+      <div class="pg-preview">
+        <div class="pg-label">实时预览（按 Ctrl + Enter 运行）</div>
+        <iframe id="pgFrame" title="预览"></iframe>
+      </div>
+    </div>
+    <p class="pg-tip">
+      <i class="bi bi-lightbulb"></i>
+      提示：CSS 和 JS 已经自动帮你引好了，只写 HTML 就行；把浏览器窗口拉窄可以看到响应式效果。
+    </p>
+  </div>
+</div>
+
+<noscript><div class="noscript">本页面的示例渲染需要启用 JavaScript，请在浏览器设置中允许。</div></noscript>
+
+<script src="assets/vendor/bootstrap.bundle.min.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/data/ch01.js"></script>
+<script src="assets/js/data/ch02.js"></script>
+<script src="assets/js/data/ch03.js"></script>
+<script src="assets/js/data/ch04.js"></script>
+<script src="assets/js/data/ch05.js"></script>
+<script src="assets/js/data/ch06.js"></script>
+<script src="assets/js/data/ch06b.js"></script>
+<script src="assets/js/data/ch07.js"></script>
+<script src="assets/js/data/ch07b.js"></script>
+<script src="assets/js/data/ch08.js"></script>
+<script src="assets/js/data/appa.js"></script>
+<script src="assets/js/data/appb.js"></script>
+<script src="assets/js/data/glossary-a.js"></script>
+<script src="assets/js/data/glossary-b.js"></script>
+<script src="assets/js/data/glossary-c.js"></script>
+<script src="assets/js/data/glossary-d.js"></script>
+<script src="assets/js/data/glossary-e.js"></script>
+<script src="assets/js/data/glossary-f.js"></script>
+<script src="assets/js/data/vs.js"></script>
+<script src="assets/js/data/vs2.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,2543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鸿蒙应用开发 · 互动学习实验室</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/demos.css">
+</head>
+<body>
+<div class="read-progress" id="readProgress"></div>
+
+<!-- ================= 顶栏 ================= -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-logo">鸿</div>
+    <div class="brand-text">
+      <strong>鸿蒙应用开发 · 互动学习实验室</strong>
+      <span>配套《鸿蒙应用开发 项目式教程（AI助学）微课版》· 10 个项目边玩边学</span>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <a class="top-link" href="https://developer.huawei.com/consumer/cn/doc/" target="_blank" rel="noopener">📖 官方文档</a>
+    <a class="top-link" href="https://github.com/openharmony/applications_app_samples" target="_blank" rel="noopener">🐙 GitHub 示例</a>
+    <a class="top-link primary" href="#page-resources" onclick="HL.go('resources');return false;">学习地图</a>
+  </div>
+</header>
+
+<!-- ================= 侧边导航 ================= -->
+<aside class="sidebar" id="sidebar">
+  <nav id="sideNav">
+    <div class="nav-group-label">开始</div>
+    <button class="nav-item active" data-page="home">
+      <span class="nav-num">🏠</span>
+      <span class="nav-txt"><b>学习首页</b><small>课程地图 · 入门指南</small></span>
+    </button>
+    <button class="nav-item" data-page="web2harmony">
+      <span class="nav-num">⇄</span>
+      <span class="nav-txt"><b>前端转鸿蒙对照</b><small>会 HTML/JS 先看这页 · 秒懂</small></span>
+    </button>
+    <div class="nav-group-label">课程项目</div>
+    <button class="nav-item" data-page="p1"><span class="nav-num">1</span><span class="nav-txt"><b>第一个 ArkTS 应用</b><small>Stage 模型 · 工程结构</small></span></button>
+    <button class="nav-item" data-page="p2"><span class="nav-num">2</span><span class="nav-txt"><b>汽车销量排行榜</b><small>ArkTS 基础 · 装饰器</small></span></button>
+    <button class="nav-item" data-page="p3"><span class="nav-num">3</span><span class="nav-txt"><b>乐购应用</b><small>ArkUI 组件 · 布局 · 路由</small></span></button>
+    <button class="nav-item" data-page="p4"><span class="nav-num">4</span><span class="nav-txt"><b>手势密码应用</b><small>ArkData · 九宫格解锁</small></span></button>
+    <button class="nav-item" data-page="p5"><span class="nav-num">5</span><span class="nav-txt"><b>体育用品商城</b><small>ArkWeb · 网页混合开发</small></span></button>
+    <button class="nav-item" data-page="p6"><span class="nav-num">6</span><span class="nav-txt"><b>桌面计算器</b><small>桌面服务卡片 Form Kit</small></span></button>
+    <button class="nav-item" data-page="p7"><span class="nav-num">7</span><span class="nav-txt"><b>校园通应用</b><small>网络请求 · 本地服务器</small></span></button>
+    <button class="nav-item" data-page="p8"><span class="nav-num">8</span><span class="nav-txt"><b>视频播放器</b><small>Media Kit · 状态机 · 手势</small></span></button>
+    <button class="nav-item" data-page="p9"><span class="nav-num">9</span><span class="nav-txt"><b>第一个元服务</b><small>原子化服务 · 服务卡片</small></span></button>
+    <button class="nav-item" data-page="p10"><span class="nav-num">10</span><span class="nav-txt"><b>智能充电（实训）</b><small>综合项目实战</small></span></button>
+    <div class="nav-group-label">学习工具</div>
+    <button class="nav-item" data-page="dict"><span class="nav-num">📖</span><span class="nav-txt"><b>关键词词典</b><small>70+ 代码名词速查</small></span></button>
+    <button class="nav-item" data-page="resources"><span class="nav-num">🔗</span><span class="nav-txt"><b>资源与术语表</b><small>官网 · GitHub · 速查</small></span></button>
+  </nav>
+</aside>
+
+<main class="content" id="content">
+
+<!-- ============================================================
+     首页
+     ============================================================ -->
+<section class="page active" id="page-home">
+  <div class="page-hero">
+    <div class="hero-badge">✦ 小白友好 · 边玩边学</div>
+    <h1>鸿蒙应用开发，从「一脸懵」到「上手写」</h1>
+    <p class="hero-sub">
+      这里是配套教材《<b>鸿蒙应用开发 项目式教程（AI助学）微课版</b>》的互动学习页。
+      每个项目都配有<b>讲解 + 可以亲手玩的模拟演示</b>，不用装软件、不用写代码，先在浏览器里把每个知识点"玩"明白，
+      再去 DevEco Studio 里动手就轻松多了。
+    </p>
+    <div class="hero-chips">
+      <span class="chip">10 个项目全覆盖</span>
+      <span class="chip">30+ 知识点精讲</span>
+      <span class="chip">17 个互动演示</span>
+      <span class="chip">Web → 鸿蒙 对照翻译</span>
+      <span class="chip">88 条关键词词典</span>
+      <span class="chip">鸿蒙官网 & GitHub 资源直达</span>
+    </div>
+    <div class="stage-actions" style="margin-top:22px">
+      <button class="btn" onclick="HL.go('web2harmony')">会 HTML/JS？先看「前端对照指南」→</button>
+      <button class="btn ghost" onclick="HL.go('p3')">直接开始项目 3（界面）</button>
+      <button class="btn ghost" onclick="HL.go('p1')">从项目 1 开始</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🗺️</span>课程地图：10 个项目都在练什么</div>
+    <div class="card-sub">点击任意卡片直达该项目的互动学习页</div>
+    <div class="home-grid">
+      <div class="home-card" onclick="HL.go('p1')">
+        <div class="hc-num">1</div>
+        <h3>第一个 ArkTS 应用</h3>
+        <p>认识鸿蒙系统、装好开发环境、看懂工程结构，写出第一个能点击的页面。</p>
+        <div class="hc-tags"><span class="hc-tag">Stage 模型</span><span class="hc-tag">工程目录</span><span class="hc-tag">Hello World</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p2')">
+        <div class="hc-num">2</div>
+        <h3>中国汽车销量排行榜</h3>
+        <p>用排行榜 App 弄清 ArkTS 基础语法和最常用的 5 个装饰器，理解"数据一变 UI 就变"。</p>
+        <div class="hc-tags"><span class="hc-tag">@State</span><span class="hc-tag">@Prop</span><span class="hc-tag">@Link</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p3')">
+        <div class="hc-num">3</div>
+        <h3>乐购应用</h3>
+        <p>把 ArkUI 的组件和布局当成积木，拼出一个包含商品列表、详情跳转的购物 App。</p>
+        <div class="hc-tags"><span class="hc-tag">基础组件</span><span class="hc-tag">容器布局</span><span class="hc-tag">页面路由</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p4')">
+        <div class="hc-num">4</div>
+        <h3>手势密码应用</h3>
+        <p>亲手画一个九宫格解锁图案，再看懂它背后用了什么数据存储方案。</p>
+        <div class="hc-tags"><span class="hc-tag">Preferences</span><span class="hc-tag">数据库</span><span class="hc-tag">PatternLock</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p5')">
+        <div class="hc-num">5</div>
+        <h3>体育用品商城</h3>
+        <p>在 App 里嵌一个网页，并让网页和 App 互相"喊话"，体验混合开发。</p>
+        <div class="hc-tags"><span class="hc-tag">ArkWeb</span><span class="hc-tag">Web 组件</span><span class="hc-tag">双向通信</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p6')">
+        <div class="hc-num">6</div>
+        <h3>桌面计算器</h3>
+        <p>做一个能算数的计算器，再把结果显示到手机桌面的服务卡片上。</p>
+        <div class="hc-tags"><span class="hc-tag">Form Kit</span><span class="hc-tag">服务卡片</span><span class="hc-tag">卡片生命周期</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p7')">
+        <div class="hc-num">7</div>
+        <h3>校园通应用</h3>
+        <p>让 App 学会"上网"：发请求、拿数据、把 JSON 变成漂亮的界面。</p>
+        <div class="hc-tags"><span class="hc-tag">HTTP / RCP</span><span class="hc-tag">网络状态</span><span class="hc-tag">Node 服务器</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p8')">
+        <div class="hc-num">8</div>
+        <h3>视频播放器</h3>
+        <p>搞懂 AVPlayer 状态机，做播放控制，再用手指滑动控制进度和音量。</p>
+        <div class="hc-tags"><span class="hc-tag">Media Kit</span><span class="hc-tag">XComponent</span><span class="hc-tag">PanGesture</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p9')">
+        <div class="hc-num">9</div>
+        <h3>第一个元服务</h3>
+        <p>认识"免安装、即用即走"的元服务，创建属于自己的服务卡片。</p>
+        <div class="hc-tags"><span class="hc-tag">元服务</span><span class="hc-tag">卡片结构</span><span class="hc-tag">生命周期</span></div>
+      </div>
+      <div class="home-card" onclick="HL.go('p10')">
+        <div class="hc-num">10</div>
+        <h3>智能充电（综合实训）</h3>
+        <p>把前面学的 UI、状态、逻辑全串起来，完成一个完整的智能充电 App。</p>
+        <div class="hc-tags"><span class="hc-tag">综合实战</span><span class="hc-tag">UI 设计</span><span class="hc-tag">业务逻辑</span></div>
+      </div>
+    </div>
+    <div class="web-cmp" style="margin-top:18px;">
+      <div class="wc-label">🆕 学过 HTML / CSS / JavaScript？你有捷径</div>
+      <p style="font-size:13.5px;">
+        不用从零学！侧边栏的「<b>前端转鸿蒙对照</b>」把鸿蒙写法和 Web 写法一条条对上号：HTML 标签 ↔ ArkUI 组件、CSS ↔ 链式属性、localStorage ↔ Preferences、fetch ↔ http、iframe ↔ Web 组件……
+        还配了 88 条「<b>关键词词典</b>」（每条都有 Web 对照）随查随用。
+        另外，<b>每个项目的知识点里都藏了橙色「⇄ 前端对照」块</b>，看到它就等于看到"这段话翻译成 Web 是什么"。
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🧭</span>建议的学习路线</div>
+    <div class="route-line">
+      <div class="route-node"><h4>阶段一 · 打通第一关（项目 1 – 2）</h4><p>装环境、看懂工程结构、写出第一个页面；理解装饰器和状态管理。这是整个课程的地基。</p></div>
+      <div class="route-node"><h4>阶段二 · 把界面搭漂亮（项目 3 – 4）</h4><p>组件 + 布局 + 路由 = 会搭任意界面；数据存储 + 九宫格 = 会做有"记忆"的 App。</p></div>
+      <div class="route-node"><h4>阶段三 · 加点高级能力（项目 5 – 8）</h4><p>网页嵌入、桌面卡片、网络请求、音视频播放——App 的四大"外挂能力"。</p></div>
+      <div class="route-node"><h4>阶段四 · 完整项目实战（项目 9 – 10）</h4><p>元服务 + 综合实训，独立完成一个从设计到逻辑的完整应用。</p></div>
+    </div>
+    <div class="tip tip-info"><span class="tip-ico">💡</span><div>看每个项目时建议按这个顺序：<b>先读"说人话"理解概念 → 再看右边的模拟演示亲手玩 → 最后看代码示例</b>。忘了的词随时来首页下面的"术语速查"复习。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🚀</span>动手前：DevEco Studio 安装四步走</div>
+    <div class="card-sub">真正写代码前，先在电脑上把这个"鸿蒙专用编辑器"装上（和写 Python 要装 PyCharm 一个道理）</div>
+    <div class="home-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+      <div class="analytic"><b>第 1 步 · 下载</b><br>去华为开发者官网搜索 <b>DevEco Studio</b>，下载 Windows 版安装包（约 1GB+，建议用官方下载器）。</div>
+      <div class="analytic"><b>第 2 步 · 安装</b><br>一路"下一步"即可。首次打开会提示安装 <b>HarmonyOS SDK</b>，让它自动下载完成。</div>
+      <div class="analytic"><b>第 3 步 · 登录账号</b><br>注册/登录<b>华为开发者账号</b>，调试真机和发布应用都需要它，提前注册好。</div>
+      <div class="analytic"><b>第 4 步 · 创建项目</b><br>新建工程选 <b>Empty Ability</b> 模板，语言选 <b>ArkTS</b>，模型选 <b>Stage</b>，点 Finish 就能跑了。</div>
+    </div>
+    <div class="tip tip-warn"><span class="tip-ico">⚠️</span><div>官方下载地址以华为开发者官网为准（<a href="https://developer.huawei.com/consumer/cn/deveco-studio/" target="_blank" rel="noopener">developer.huawei.com → DevEco Studio</a>），不要从第三方网站下安装包。安装 SDK 需要预留约 10GB 磁盘空间。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">📚</span>术语速查表（看不懂随时回来翻）</div>
+    <div class="term-grid">
+      <div class="term-card"><h5>ArkTS</h5><p>鸿蒙的官方应用开发语言。可以理解为"更严格版的 TypeScript"，专门为鸿蒙优化。</p></div>
+      <div class="term-card"><h5>ArkUI</h5><p>鸿蒙的界面开发框架。用"代码描述界面长什么样"，数据变了界面自动刷新。</p></div>
+      <div class="term-card"><h5>Stage 模型</h5><p>鸿蒙推荐的"应用组织方式"，规定了一个 App 如何启动、如何管理窗口和页面。</p></div>
+      <div class="term-card"><h5>装饰器 @Xxx</h5><p>写在代码前面的"标签"，告诉鸿蒙："这个变量是状态""这是个页面入口"等，是本课程的核心。</p></div>
+      <div class="term-card"><h5>组件</h5><p>界面的一块积木：文字、按钮、图片都是组件；自己拼的"组合积木"叫自定义组件。</p></div>
+      <div class="term-card"><h5>HAP</h5><p>鸿蒙应用的安装包格式，相当于安卓的 apk。一个 App 可以包含多个 HAP。</p></div>
+      <div class="term-card"><h5>元服务</h5><p>"轻量版 App"：不用安装，点开即用，还能把卡片直接放桌面上。</p></div>
+      <div class="term-card"><h5>DevEco Studio</h5><p>华为官方的鸿蒙开发工具（编辑器 + 调试器 + 模拟器），写代码就靠它。</p></div>
+    </div>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>准备好了吗？</b><span>先去"项目 1"，把鸿蒙的世界逛一圈。</span></div>
+    <button class="btn" onclick="HL.go('p1')">进入项目 1 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     前端转鸿蒙 · 对照指南
+     ============================================================ -->
+<section class="page" id="page-web2harmony">
+  <div class="page-hero">
+    <div class="hero-badge">专为「会 HTML / CSS / JavaScript」的你准备</div>
+    <h1>从 Web 到鸿蒙：你已经会 80%</h1>
+    <p class="hero-sub">学过前端三件套再学鸿蒙，其实不是"从零开始"，而是<b>换一套写法做同一件事</b>。这一页就是你的"翻译词典"：把你在 Web 里的肌肉记忆，一条条翻译成鸿蒙的写法。建议先看完这一页，再去项目 1 会顺畅得多。</p>
+    <div class="hero-chips">
+      <span class="chip">迁移路线图</span><span class="chip">心智模型对照表</span><span class="chip">命令式 vs 声明式</span><span class="chip">px → vp 单位</span><span class="chip">前端 8 大陷阱</span>
+    </div>
+  </div>
+
+  <!-- ① 迁移路线图 -->
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🗺️</span>第一步：你会的哪些能直接带走？</div>
+    <div class="card-sub">先给自己划清"地盘"——绿色的直接复用，橙色的换个写法，蓝色的全新概念。</div>
+    <div class="migrate-grid">
+      <div class="migrate-card keep">
+        <h5>✅ 直接可用（不用重学）</h5>
+        <ul>
+          <li>变量、函数、类、接口语法（TS 风格）</li>
+          <li>数组 / 对象 / JSON 操作</li>
+          <li>装饰器概念（你已会 <code class="inline">async/await</code> 这类"关键字前缀"）</li>
+          <li>箭头函数、模板字符串、解构、模块 import/export</li>
+          <li>异步编程思路（Promise / async / await 原样可用）</li>
+          <li><code class="inline">console.log</code> → 只是改叫 <code class="inline">console.info</code></li>
+          <li>npm 的使用经验 → <b>ohpm</b> 用法几乎一样</li>
+          <li>调试思路（打印、断点、看报错）</li>
+        </ul>
+      </div>
+      <div class="migrate-card change">
+        <h5>🔄 换个写法（会做但写法变）</h5>
+        <ul>
+          <li>HTML 标签 → <b>ArkUI 组件</b>（<code class="inline">div</code>→<code class="inline">Column</code>、<code class="inline">button</code>→<code class="inline">Button</code>）</li>
+          <li>CSS 样式 → <b>链式属性</b>（<code class="inline">.fontSize(20)</code>）</li>
+          <li><code class="inline">addEventListener</code> → <code class="inline">.onClick()</code></li>
+          <li>手动改 DOM → <b>改状态变量</b>（框架自动刷新）</li>
+          <li>localStorage → <b>Preferences</b></li>
+          <li>fetch / axios → <b>http / RCP</b></li>
+          <li>iframe → <b>Web 组件</b></li>
+          <li>webpack / vite → <b>hvigor</b>（几乎不用手配）</li>
+        </ul>
+      </div>
+      <div class="migrate-card new">
+        <h5>🆕 全新概念（Web 里没有的）</h5>
+        <ul>
+          <li>状态管理装饰器：<b>@State / @Prop / @Link</b></li>
+          <li>声明式 UI：<b>"改数据 → UI 自动变"</b></li>
+          <li><b>vp / fp</b> 密度无关单位</li>
+          <li>Stage 模型 / UIAbility（应用的组织方式）</li>
+          <li>服务卡片、元服务（桌面直达）</li>
+          <li>AVPlayer + XComponent（没有 &lt;video&gt; 标签）</li>
+          <li>HAP 安装包、应用签名</li>
+          <li>真机 / 模拟器调试流程</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip tip-ok"><span class="tip-ico">🎉</span><div><b>好消息</b>：真正"全新要学"的其实集中在两块——<b>状态管理（装饰器）</b>和<b>鸿蒙的组件体系</b>。其它都是"换个地方写同样的逻辑"。这两块正好是项目 2 和项目 3 的主线。</div></div>
+  </div>
+
+  <!-- ② 心智模型大对照表 -->
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">⇄</span>第二步：把"我想做的事"逐条翻译</div>
+    <div class="card-sub">下表覆盖了日常开发 90% 的场景。遇到不认识的词，随时去侧边栏「关键词词典」查。</div>
+    <div class="web-cmp" style="border-left-color:#0A59F7;background:linear-gradient(135deg,#F5F9FF,#FBFDFF);border-color:#D6E7FF;">
+      <div class="wc-label" style="background:#E8F1FF;color:#0A4BD6;">⇄ WEB → 鸿蒙 翻译表</div>
+      <table class="wc-tbl" style="--x:0">
+        <tr><th style="width:16%">我想做的事</th><th style="width:34%">Web 里我这样写</th><th style="width:34%">鸿蒙里改成这样写</th><th style="width:16%">关键区别</th></tr>
+        <tr>
+          <td>显示一段文字</td>
+          <td class="webcell"><code>&lt;p&gt;你好&lt;/p&gt;</code></td>
+          <td><code>Text('你好')</code></td>
+          <td>组件 = 大写的"函数调用"</td>
+        </tr>
+        <tr>
+          <td>一个按钮（点击事件）</td>
+          <td class="webcell"><code>&lt;button onclick="fn()"&gt;点我&lt;/button&gt;</code></td>
+          <td><code>Button('点我').onClick(() =&gt; {})</code></td>
+          <td>事件是"链式"挂上去的，不写在标签里</td>
+        </tr>
+        <tr>
+          <td>横向 / 纵向排列</td>
+          <td class="webcell"><code>&lt;div style="display:flex; flex-direction:column"&gt;</code></td>
+          <td><code>Column() { ... }</code> / <code>Row() { ... }</code></td>
+          <td>布局本身也是组件（不用写 CSS）</td>
+        </tr>
+        <tr>
+          <td>给元素加样式</td>
+          <td class="webcell"><code>.title { font-size: 20px; color: #333; }</code></td>
+          <td><code>Text('…').fontSize(20).fontColor('#333')</code></td>
+          <td><b>没有 CSS 文件</b>，样式贴着组件写</td>
+        </tr>
+        <tr>
+          <td>改一段文字的内容</td>
+          <td class="webcell"><code>el.textContent = '新文字'</code></td>
+          <td><code>this.message = '新文字'</code>（@State）</td>
+          <td><b>改数据，不碰界面</b>，框架自动刷新</td>
+        </tr>
+        <tr>
+          <td>循环渲染一个列表</td>
+          <td class="webcell"><code>list.map(x =&gt; '&lt;li&gt;' + x + '&lt;/li&gt;').join('')</code></td>
+          <td><code>ForEach(list, (x) =&gt; Item({ data: x }))</code></td>
+          <td>不再是"拼字符串"，而是"每条数据生成一个组件"</td>
+        </tr>
+        <tr>
+          <td>封装一个可复用块</td>
+          <td class="webcell"><code>function Card() { return HTML }</code> / 自定义元素</td>
+          <td><code>@Component struct Card { build() {} }</code></td>
+          <td>组件用 <b>struct</b> 定义，名字必须大写开头</td>
+        </tr>
+        <tr>
+          <td>复用一段样式</td>
+          <td class="webcell"><code>.btn-primary { ... }</code> CSS 类</td>
+          <td><code>@Styles</code> / <code>@Extend(Text)</code></td>
+          <td>样式函数化，可带参数</td>
+        </tr>
+        <tr>
+          <td>页面跳转</td>
+          <td class="webcell"><code>location.href = 'detail.html'</code></td>
+          <td><code>router.pushUrl({ url: 'pages/Detail' })</code></td>
+          <td>目标页面必须先在配置文件里"登记"</td>
+        </tr>
+        <tr>
+          <td>存一点小数据</td>
+          <td class="webcell"><code>localStorage.setItem('k', 'v')</code></td>
+          <td><code>await pref.put('k', 'v'); await pref.flush()</code></td>
+          <td>多了 <b>flush()</b>（真正写盘），忘了数据会丢</td>
+        </tr>
+        <tr>
+          <td>请求后端接口</td>
+          <td class="webcell"><code>fetch('/api/data')</code></td>
+          <td><code>http.createHttp().request('…')</code></td>
+          <td>要声明 <code>ohos.permission.INTERNET</code> 权限</td>
+        </tr>
+        <tr>
+          <td>嵌入一个网页</td>
+          <td class="webcell"><code>&lt;iframe src="shop.html"&gt;</code></td>
+          <td><code>Web({ src: $rawfile('shop.html') })</code></td>
+          <td>通信方式不同：runJavaScript + javaScriptProxy</td>
+        </tr>
+        <tr>
+          <td>播放视频</td>
+          <td class="webcell"><code>&lt;video src="a.mp4" controls&gt;</code></td>
+          <td><code>AVPlayer</code> + <code>XComponent</code></td>
+          <td><b>没有 &lt;video&gt; 标签</b>——鸿蒙不是浏览器环境</td>
+        </tr>
+        <tr>
+          <td>装一个第三方库</td>
+          <td class="webcell"><code>npm install xxx</code></td>
+          <td><code>ohpm install xxx</code></td>
+          <td>用法几乎一样，仓库是 OpenHarmony 三方库中心</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ③ 声明式 vs 命令式 -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-title"><span class="st-dot"></span>第三步：最重要的思维转变 —— 命令式 vs 声明式</div>
+    </div>
+    <div class="analytic" style="margin-bottom:14px;">
+      <b>一句话区别</b>：Web 里（用 DOM 时）你是"<b>指挥官</b>"——找到元素、改它、它再重绘，每一步都你操心；鸿蒙里你是"<b>甩手掌柜</b>"——只改数据，界面怎么变是框架的事。下面这个演示，亲手跑一遍两边的流程：
+    </div>
+    <div class="cmp2">
+      <div class="cmp2-col imp">
+        <div class="cmp2-head">🐢 命令式（JS / DOM 思维）<small>手动找到元素 → 手动改它</small></div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>script.js（Web 写法）</div><pre><code>// ① 先找到那个元素
+const el = document.getElementById('greet');
+// ② 手动改它的内容
+el.textContent = '你好，鸿蒙';
+// ③ 浏览器重绘 → 你看到变化
+// （每一步都得你亲自操心）</code></pre></div>
+        <div class="cmp2-step" data-side="imp" data-n="1"><span class="st-num">1</span>getElementById 先"抓到"那个元素 —— 抓错了就白干</div>
+        <div class="cmp2-step" data-side="imp" data-n="2"><span class="st-num">2</span>手动把 textContent 改成新文字</div>
+        <div class="cmp2-step" data-side="imp" data-n="3"><span class="st-num">3</span>浏览器重绘，你才看到变化</div>
+        <button class="btn sm" id="w2h-run-imp" style="margin-top:10px;">▶ 用命令式执行（3 步）</button>
+      </div>
+      <div class="cmp2-col dec">
+        <div class="cmp2-head">🚀 声明式（鸿蒙思维）<small>只改数据，剩下交给框架</small></div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>Index.ets（鸿蒙写法）</div><pre><code>@State message: string = 'Hello World';
+
+// 你只说一句话：把数据改成新值
+this.message = '你好，鸿蒙';
+
+// 然后什么都不用管 ——
+// 框架自动找到所有用到 message 的地方并刷新</code></pre></div>
+        <div class="cmp2-step" data-side="dec" data-n="1"><span class="st-num">1</span>改变量 this.message = '…'（唯一你要做的）</div>
+        <div class="cmp2-step" data-side="dec" data-n="2"><span class="st-num">2</span>框架发现「@State 标记的数据变了」</div>
+        <div class="cmp2-step" data-side="dec" data-n="3"><span class="st-num">3</span>自动刷新所有用到它的地方（你一行都不用多写）</div>
+        <button class="btn sm" id="w2h-run-dec" style="margin-top:10px;">▶ 用声明式执行（1 步 + 自动 2 步）</button>
+      </div>
+    </div>
+    <div class="cmp2-preview">
+      <span class="pv-label">屏幕上显示的效果：</span>
+      <span class="pv-box" id="w2h-pv">Hello World</span>
+      <button class="btn xs ghost" id="w2h-reset">重置演示</button>
+    </div>
+  </div>
+
+  <!-- ④ px → vp -->
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-title"><span class="st-dot"></span>第四步：单位变了 —— 鸿蒙为什么不肯用 px？</div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#5A6B8C;">
+        <span>拖动改变屏幕密度：<b id="w2h-dpr-val" style="color:#0A59F7;">1x</b></span>
+        <input type="range" class="m-slider" id="w2h-dpr" min="1" max="3" step="0.5" value="1" style="width:150px;">
+      </div>
+    </div>
+    <div class="dpr-wrap">
+      <div class="dpr-box bad">
+        <div class="dpr-screen"><span class="dpr-t" id="w2h-px-text">你好，鸿蒙</span></div>
+        <div style="font-size:12.5px;color:#7A6A58;font-weight:700;">Web 习惯：写死 px</div>
+        <div class="dpr-note">⚠️ 屏幕密度越高，字反而显得越小 —— 换台手机就"翻车"</div>
+      </div>
+      <div class="dpr-box good">
+        <div class="dpr-screen"><span class="dpr-t" id="w2h-vp-text">你好，鸿蒙</span></div>
+        <div style="font-size:12.5px;color:#0A6420;font-weight:700;">鸿蒙写法：vp / fp 单位</div>
+        <div class="dpr-note">✅ 不管什么屏幕密度，看起来始终一样大</div>
+      </div>
+    </div>
+    <div class="analytic" style="margin-top:13px;">
+      <b>单位速记表</b>：
+      <table class="tbl" style="margin-top:8px;">
+        <tr><th>用途</th><th>Web 习惯</th><th>鸿蒙推荐</th><th>说明</th></tr>
+        <tr><td>布局尺寸（宽高、间距）</td><td><code class="inline">px</code></td><td><b>vp</b></td><td>虚拟像素，密度无关。类似 Android 的 dp。默认数字不带单位就是 vp</td></tr>
+        <tr><td>字号</td><td><code class="inline">px</code> / <code class="inline">rem</code></td><td><b>fp</b></td><td>字体专用。用户在系统里调大字体时，fp 会跟着变（无障碍友好）</td></tr>
+        <tr><td>百分比</td><td><code class="inline">width: 100%</code></td><td><code class="inline">.width('100%')</code></td><td>字符串形式的百分比，用法几乎一样</td></tr>
+        <tr><td>按比例分空间</td><td><code class="inline">flex: 1</code></td><td><code class="inline">.layoutWeight(1)</code></td><td>弹性布局里的"分份"</td></tr>
+      </table>
+      <b>结论</b>：写 <code class="inline">.fontSize(16)</code>（不带单位 = vp/fp 体系），别写 <code class="inline">16px</code>。这就是为什么你在教程里看不到 px。
+    </div>
+  </div>
+
+  <!-- ⑤ 8 个前端陷阱 -->
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">⚠️</span>第五步：带着前端思维最容易踩的 8 个坑</div>
+    <div class="card-sub">每一条都是"在 Web 里理所当然、在鸿蒙里直接报错"的写法。现在看一遍，能省你几天调试时间。</div>
+    <div class="home-grid" style="grid-template-columns:repeat(auto-fill,minmax(340px,1fr));">
+      <div class="analytic"><b>❌ 坑 1：逛去找 DOM 节点</b><br>"没有 <code class="inline">document</code>！"鸿蒙没有 DOM 概念。<br>👉 正确姿势：用状态变量描述界面，改数据而不是改节点。<br><code class="inline">document.getElementById</code> 在鸿蒙里<b>不存在</b>。</div>
+      <div class="analytic"><b>❌ 坑 2：想在 build() 里写逻辑</b><br>build() 只是"界面图纸"，不能 console.log、不能赋值、不能写复杂计算。<br>👉 逻辑写到普通方法里（onClick 回调、生命周期函数），build 里只放 UI 描述。</div>
+      <div class="analytic"><b>❌ 坑 3：找不到 CSS 文件</b><br>鸿蒙工程里没有 .css。样式通过<b>链式属性</b>跟在组件后面：<code class="inline">.width(100).backgroundColor('#fff')</code>。<br>👉 习惯"属性即样式"。</div>
+      <div class="analytic"><b>❌ 坑 4：习惯性地写 px</b><br><code class="inline">.fontSize(16)</code> = 16vp（推荐）；写 <code class="inline">'16px'</code> 也能跑，但不同屏幕会不一样。<br>👉 布局用 vp（直接写数字），字体用 fp。</div>
+      <div class="analytic"><b>❌ 坑 5：用 == 比较数组</b><br>和 JS 一样，两个内容相同的数组 <code class="inline">[1,2]==[1,2]</code> 是 <b>false</b>。<br>👉 用 <code class="inline">a.join(',') === b.join(',')</code> 或逐项比较（项目 4 的密码验证就是这么做的）。</div>
+      <div class="analytic"><b>❌ 坑 6：存完数据忘记 flush</b><br>Preferences 的 <code class="inline">put()</code> 只写内存，必须 <code class="inline">await flush()</code> 才落盘，否则 App 一关数据就没了。<br>👉 口诀：<b>put 之后必 flush</b>。</div>
+      <div class="analytic"><b>❌ 坑 7：组件名小写开头</b><br><code class="inline">struct myCard</code> 不能被当组件使用，必须 <code class="inline">MyCard</code>。<br>👉 组件、类型一律大驼峰；变量、函数小驼峰——和你在 JS 里的命名习惯一致。</div>
+      <div class="analytic"><b>❌ 坑 8：先 runJavaScript 再等加载</b><br>Web 组件里，网页没加载完就执行 JS 会静默失败。<br>👉 等 <code class="inline">onPageEnd</code> 回调里再调用（项目 5 演示里有日志可以观察时机）。</div>
+    </div>
+  </div>
+
+  <!-- ⑥ 学习路线建议 -->
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🧭</span>带 Web 基础，这样学最省力</div>
+    <div class="route-line">
+      <div class="route-node"><h4>第 1 站 · 本页 + 关键词词典<span class="tag blue" style="margin-left:8px;">你在这里</span></h4><p>把翻译表过一遍，心里有底。看不懂的术语直接去词典搜。</p></div>
+      <div class="route-node"><h4>第 2 站 · 项目 3（乐购应用）—— 先学"怎么写界面"</h4><p>组件和布局最像 HTML/CSS，你有基础的话半小时就能进入状态。玩一玩组件画廊和布局切换。</p></div>
+      <div class="route-node"><h4>第 3 站 · 项目 2（排行榜）—— 攻克状态管理</h4><p>@State/@Prop/@Link 是全课程最核心的新概念，配合数据流演示学，别跳过。</p></div>
+      <div class="route-node"><h4>第 4 站 · 项目 1（工程结构）—— 补上"项目怎么搭起来"</h4><p>有了前面两个项目的体感，再理解 Stage 模型和配置文件就轻松了。</p></div>
+      <div class="route-node"><h4>第 5 站 · 剩下的项目按顺序推</h4><p>存储（4）→ 混合开发（5）→ 卡片（6）→ 网络（7）→ 媒体（8）→ 元服务（9）→ 综合（10）。每章都有对照块帮你翻译。</p></div>
+    </div>
+    <div class="tip tip-info"><span class="tip-ico">💡</span><div><b>每页都有"翻译"</b>：从项目 1 开始，每个项目的知识点里都插了一个橙色的「前端对照」块——专门把那一章的代码和 Web 写法做对照。看到橙色块，就是给你准备的。</div></div>
+    <div class="next-bar" style="margin-top:20px;">
+      <div class="nb-text"><b>接下来去哪？</b><span>按新路线，第一站是项目 3（界面最像 HTML，上手最快）。</span></div>
+      <button class="btn" onclick="HL.go('p3')">去项目 3 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 1：第一个 ArkTS 应用
+     ============================================================ -->
+<section class="page" id="page-p1">
+  <div class="page-hero">
+    <div class="hero-badge">项目 1 · 入门第一课</div>
+    <h1>第一个 ArkTS 应用（Stage 模型）</h1>
+    <p class="hero-sub">这一章不讲复杂代码，先回答三个最关键的问题：<b>鸿蒙是什么</b>、<b>一个鸿蒙 App 的"骨架"长什么样</b>、<b>我写的代码放在哪里</b>。搞懂这些，后面 9 个项目都会顺很多。</p>
+    <div class="hero-chips">
+      <span class="chip">鸿蒙操作系统简介</span><span class="chip">工程目录及配置文件</span><span class="chip">ArkTS 语言简介</span><span class="chip">Stage 模型</span><span class="chip">环境搭建与创建项目</span><span class="chip">界面与功能实现</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>鸿蒙操作系统是个啥？</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          安卓管手机、Windows 管电脑、watchOS 管手表——各管各的。而鸿蒙的野心是：<b>手机、电视、手表、车机、音箱……用同一套系统全部打通</b>。你在手机上没看完的视频，上了车可以接着看，这就是"全场景"和"分布式"。
+        </div>
+        <p style="color:var(--text-2)">HarmonyOS 是华为开发的面向<b>全场景</b>的分布式操作系统。对开发者来说，只需要记住三件事：</p>
+        <ul class="slist">
+          <li><b>一次开发，多端部署</b>：写一套代码，自动适配手机 / 平板 / 手表等不同屏幕。</li>
+          <li><b>分布式能力</b>：不同设备之间可以互相调用硬件（比如手机调用电视的摄像头）——这是鸿蒙的看家本领。</li>
+          <li><b>面向未来的生态</b>：鸿蒙 NEXT 起，系统已经完全自研底座，学习鸿蒙开发正是好时候。</li>
+        </ul>
+        <div class="tip tip-info"><span class="tip-ico">🧠</span><div>考试/面试常问：鸿蒙的三大特征 = <b>全场景</b> + <b>分布式</b> + <b>一次开发多端部署</b>。记这三个词就够了。</div></div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>工程的"骨架"：目录结构长什么样</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          刚建好的项目，左边的文件夹一大堆，新手最容易懵。其实常打交道的就一个地方：<b>entry/src/main/ets/pages/</b>——你写的页面代码都放这。其它文件是"配置"，改错一个字母项目都可能起不来，先认识、别乱动。
+        </div>
+        <p style="color:var(--text-2)">点一点下面这棵树（对应右侧手机里"工程结构"讲解），把每个文件的作用过一遍：</p>
+        <div class="file-tree" id="fileTree">
+          <div class="ft-node">
+            <div class="ft-row" data-desc="工程根目录，名字可以随便改"><span class="ft-ico">📦</span><span class="ft-name">MyApplication/</span><span class="ft-desc">工程根目录</span></div>
+            <div class="ft-children">
+              <div class="ft-node">
+                <div class="ft-row" data-desc="应用的主模块，代码主要写在这里"><span class="ft-ico">📁</span><span class="ft-name">entry/</span><span class="ft-desc">应用主模块（HAP 包）</span></div>
+                <div class="ft-children">
+                  <div class="ft-node">
+                    <div class="ft-row" data-desc="模块源码目录，'main' 表示主入口"><span class="ft-ico">📁</span><span class="ft-name">src/main/</span><span class="ft-desc">主入口</span></div>
+                    <div class="ft-children">
+                      <div class="ft-node">
+                        <div class="ft-row" data-desc="ArkTS 代码目录，所有 .ets 文件在这里"><span class="ft-ico">📁</span><span class="ft-name">ets/</span><span class="ft-desc">ArkTS 代码</span></div>
+                        <div class="ft-children">
+                          <div class="ft-row" data-desc="UIAbility：应用的'生命周期管家'，App 启动从这里开始"><span class="ft-ico">📄</span><span class="ft-name">entryability/EntryAbility.ets</span><span class="ft-desc">应用入口能力</span></div>
+                          <div class="ft-row" data-desc="页面目录！你写的每个页面都是一个 .ets 文件，Index.ets 是首页"><span class="ft-ico">📄</span><span class="ft-name">pages/Index.ets</span><span class="ft-desc">首页 ← 重点！</span></div>
+                        </div>
+                      </div>
+                      <div class="ft-row" data-desc="资源目录：图片、字符串、颜色都放这里，通过 $r() 引用"><span class="ft-ico">📁</span><span class="ft-name">resources/</span><span class="ft-desc">图片 / 字符串资源</span></div>
+                      <div class="ft-row" data-desc="模块配置文件：声明权限、页面路由清单、Ability 信息等"><span class="ft-ico">📄</span><span class="ft-name">module.json5</span><span class="ft-desc">模块配置（重要）</span></div>
+                    </div>
+                  </div>
+                  <div class="ft-row" data-desc="'模块级'构建脚本，一般不需要改"><span class="ft-ico">📄</span><span class="ft-name">hvigorfile.ts</span><span class="ft-desc">构建脚本</span></div>
+                  <div class="ft-row" data-desc="声明模块依赖的第三方库"><span class="ft-ico">📄</span><span class="ft-name">oh-package.json5</span><span class="ft-desc">依赖声明</span></div>
+                </div>
+              </div>
+              <div class="ft-node">
+                <div class="ft-row" data-desc="应用级全局配置：包名、版本号、图标、应用名称"><span class="ft-ico">📄</span><span class="ft-name">app.json5</span><span class="ft-desc">应用全局配置</span></div>
+              </div>
+              <div class="ft-node">
+                <div class="ft-row" data-desc="'工程级'配置文件：签名、产品型号、SDK 版本"><span class="ft-ico">📄</span><span class="ft-name">build-profile.json5</span><span class="ft-desc">工程配置</span></div>
+              </div>
+              <div class="ft-row" data-desc="编译器版本要求、依赖等全局设置"><span class="ft-ico">📄</span><span class="ft-name">oh-package.json5</span><span class="ft-desc">全局依赖</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="analytic" id="fileTreeDesc"><b>👆 点一下上面的任意文件/文件夹</b>，这里会显示它的作用说明。</div>
+        <details class="fold">
+          <summary>记忆口诀：一个 App 的"身份证"和"说明书"分别是什么？</summary>
+          <div class="fold-body">
+            <b>app.json5 = 身份证</b>（整个 App 叫什么、什么版本、什么图标）<br>
+            <b>module.json5 = 说明书</b>（这个模块有哪些页面、要什么权限、入口在哪）<br>
+            <b>main_pages.json = 目录页</b>（把所有页面登记在册，路由跳转前必须先登记）<br>
+            考试爱考这三兄弟，别搞混。
+          </div>
+        </details>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · 你的 Web 工程文件，在鸿蒙里叫什么？</div>
+        <p>你熟悉的"HTML + CSS + JS 三件套"，在鸿蒙里<b>合并进了一个 .ets 文件</b>；配置文件换了个名字，作用几乎一样：</p>
+        <table class="wc-tbl">
+          <tr><th>你在 Web 里的东西</th><th>鸿蒙里的对应物</th><th>说明</th></tr>
+          <tr><td class="webcell"><code>index.html</code>（页面骨架）</td><td><code>pages/Index.ets</code></td><td>入口页，但界面 + 逻辑 + 样式都在这一个文件里</td></tr>
+          <tr><td class="webcell"><code>style.css</code></td><td>（没有这个文件了！）</td><td>样式变成"链式属性"，贴着组件后面写</td></tr>
+          <tr><td class="webcell"><code>script.js</code>（事件、逻辑）</td><td>同一个 <code>.ets</code> 文件里</td><td>build() 描述界面，其它方法/函数写逻辑</td></tr>
+          <tr><td class="webcell"><code>package.json</code></td><td><code>oh-package.json5</code></td><td>几乎一样：声明依赖和版本</td></tr>
+          <tr><td class="webcell"><code>webpack.config.js</code></td><td><code>hvigorfile.ts</code></td><td>构建配置，一般不用手改</td></tr>
+          <tr><td class="webcell">入口 JS（main.js）</td><td><code>EntryAbility.ets</code></td><td>App 在这里启动，负责"把首页装进窗口"</td></tr>
+        </table>
+        <p>💡 <b>记忆法</b>：把 .ets 文件想象成"<b>HTML + CSS + JS 三合一</b>"的文件，只是语法换成了 ArkTS 风格。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>ArkTS：鸿蒙的"官方语言"</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          TypeScript（TS）是前端界的"加强版 JavaScript"，而 ArkTS 又是 <b>TypeScript 的"更严格加强版"</b>。语法长得几乎一样，但 ArkTS 不允许一些"随意写法"（比如随便改变量类型），换来的好处是：代码更不容易出错、运行更快。
+        </div>
+        <table class="tbl">
+          <tr><th>对比项</th><th>JavaScript</th><th>TypeScript</th><th>ArkTS</th></tr>
+          <tr><td>类型检查</td><td>无（运行时才知道错）</td><td>有（可选）</td><td><b>强制</b>（写错当场报错）</td></tr>
+          <tr><td>用在哪儿</td><td>网页</td><td>网页 / 工具</td><td>鸿蒙应用 & 元服务</td></tr>
+          <tr><td>为谁优化</td><td>—</td><td>通用</td><td>鸿蒙多设备 + 高性能</td></tr>
+        </table>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>ArkTS · 变量声明的两种写法</div><pre><code>let name: string = '小明';   // 类型写在变量名后面：': 类型'
+let age: number = 18;        // ArkTS 里数字统统是 number
+const PI: number = 3.14;     // const 表示"不许再改"
+
+// 猜猜这句会怎么样？
+// age = '你好';   ← 报错！age 已经声明是 number，不能塞字符串</code></pre></div>
+        <div class="tip tip-info"><span class="tip-ico">💡</span><div>把 ArkTS 想象成"带强制安检的 TS"：过安检（编译）时发现问题，总比 App 上线后崩溃强。</div></div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">④</span>Stage 模型：App 是怎么"站起来"的</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          Stage 模型就是鸿蒙规定的"App 组织方式"，像一出戏的舞台规则：<br>
+          <b>UIAbility</b> = 一个"演员"（一个功能单元，比如主界面）；<br>
+          <b>WindowStage</b> = "舞台"（负责显示窗口）；<br>
+          <b>页面（Page）</b> = 演员表演的"节目"（具体的界面）。<br>
+          App 启动时，系统先叫醒演员（onCreate），再给他搭好舞台（onWindowStageCreate），然后节目开演——加载首页。
+        </div>
+        <p style="color:var(--text-2)">点一点下面的四个区域，看看每一层的职责（建议结合右手机的"启动流程"演示一起看）：</p>
+        <div class="arch-board" id="archBoard">
+          <div class="arch-col a1" data-detail="【应用包】一个 App 是一个 App Pack（.app 文件），里面可以装 1 个或多个 HAP 模块。entry 是主模块，feature 是功能模块。相当于把整部戏打包成一个剧组。">
+            <h5>📦 应用包 App Pack</h5>
+            <div class="arch-box">包含 1~N 个 <b>HAP</b>（模块包）</div>
+            <div class="arch-box">entry 主模块 / feature 功能模块</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col a2" data-detail="【UIAbility】应用的基本功能单元，负责和系统打交道：创建、切前台、切后台、销毁。每个 UIAbility 实例的生命周期是 onCreate → onWindowStageCreate → onForeground → onBackground → onDestroy。">
+            <h5>🎭 UIAbility</h5>
+            <div class="arch-box">拥有生命周期：创建 / 前后台切换</div>
+            <div class="arch-box">负责与系统交互、管理窗口</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col a3" data-detail="【WindowStage】窗口舞台。UIAbility 创建后，系统会回调 onWindowStageCreate，在这里把首页 loadContent 进去——'节目'（页面）就这么被搬上舞台。">
+            <h5>🎬 WindowStage</h5>
+            <div class="arch-box">管理窗口，加载首页 loadContent('pages/Index')</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col a4" data-detail="【页面 Page】用户看到的具体界面，每个页面是一个被 @Entry 修饰的 .ets 文件。页面之间通过路由（router）跳转，就像节目单上一个个节目。">
+            <h5>📱 页面 Page</h5>
+            <div class="arch-box">pages/Index.ets（@Entry 入口页）</div>
+            <div class="arch-box">通过路由跳到其它页面</div>
+          </div>
+        </div>
+        <div class="arch-detail" id="archDetail"><b>👆 点上面的任意一栏</b>，查看它的详细职责。</div>
+        <details class="fold">
+          <summary>为什么要有"应用模型"？FA 和 Stage 是什么关系？</summary>
+          <div class="fold-body">
+            鸿蒙早期用的是 <b>FA 模型</b>（Feature Ability），从 API 9 开始官方推荐 <b>Stage 模型</b>，新项目一律用 Stage。<br><br>
+            为什么换？<b>FA 模型里"能力"和"窗口"缠在一起</b>，多设备、多窗口场景下很别扭。Stage 模型把两者分开：UIAbility 管能力，WindowStage 管窗口，结构更清晰——这就是"舞台（Stage）"名字的由来。<br><br>
+            考试/教材里讲的一切默认都是 <b>Stage 模型</b>，其余内容了解即可。
+          </div>
+        </details>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">⑤</span>动手时刻：一个能点击的页面</div>
+        <div class="card-sub">右侧手机里就是这个页面，先去点几下按钮，回来再看代码。</div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>pages/Index.ets · 逐行注释版</div><pre><code>// @Entry：标记这是"页面入口"，一个页面只有一个是入口
+@Entry
+// @Component：标记这是一个"自定义组件"（页面本质也是组件）
+@Component
+struct Index {                     // struct = 组件用结构体来定义
+  @State message: string = 'Hello World';   // 状态变量：值变了，界面自动刷新
+
+  build() {                        // build() 里描述界面长什么样
+    Column() {                     // 纵向容器：里面的东西从下往上排
+      Text(this.message)           // 文本组件，显示 message 的值
+        .fontSize(40)              // 链式属性：字号 40
+        .fontWeight(FontWeight.Bold)
+
+      Button('点我切换文字')        // 按钮
+        .onClick(() =&gt; {           // 点击事件：点下去执行什么
+          this.message = '你好，鸿蒙！'   // 修改状态 → UI 自动更新
+        })
+        .margin({ top: 24 })
+    }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)   // 内容整体垂直居中
+  }
+}</code></pre></div>
+        <div class="term-grid" style="margin-top:14px">
+          <div class="term-card"><h5>@Entry</h5><p>页面入口标记。系统跳转到这个页面时从它开始渲染。</p></div>
+          <div class="term-card"><h5>@Component</h5><p>自定义组件标记。加了它才能被别的地方当"积木"使用。</p></div>
+          <div class="term-card"><h5>@State</h5><p>状态变量。本项目的灵魂：<b>值一变，用到它的地方全部自动刷新</b>。</p></div>
+          <div class="term-card"><h5>build()</h5><p>组件的"画图纸"。界面 = 组件 + 属性（.fontSize 等）+ 事件（.onClick 等）。</p></div>
+        </div>
+        <div class="tip tip-warn"><span class="tip-ico">✍️</span><div><b>小练习</b>：把右侧手机里的按钮逻辑改写一下——点一次按钮文字在"Hello World / 你好鸿蒙"之间<b>来回切换</b>（提示：用 if-else 判断当前值）。想不出来没关系，先感受一下"改状态 → 界面变"的节奏。</div></div>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content">
+              <div class="m-page" style="justify-content:center;align-items:center;padding:30px 24px;background:#fff;">
+                <div style="font-size:12px;color:#8C97AB;margin-bottom:36px;font-weight:600;letter-spacing:.1em;">P1 · 第一个页面</div>
+                <div id="p1-msg" style="font-size:33px;font-weight:800;color:#16233A;text-align:center;transition:all .3s ease;">Hello World</div>
+                <button class="m-btn" id="p1-btn" style="margin-top:40px;max-width:230px;">点我切换文字</button>
+                <div style="margin-top:26px;font-size:12px;color:#8C97AB;">@State message: <span id="p1-state" style="font-family:var(--mono);color:#0A59F7;">'Hello World'</span></div>
+                <div style="margin-top:8px;font-size:11.5px;color:#B0BACA;">👆 点按钮，注意上面的文字和这里的值同步变化</div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>点手机里的按钮，观察文字变化——这就是"状态驱动 UI"。再回到左边看代码，第 6 行的 <b>@State</b> 是幕后功臣。</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 1 完成 ✔</b><span>你已经认识鸿蒙、看懂工程结构、跑通第一个页面。下一个项目开始认真学语言。</span></div>
+    <button class="btn" onclick="HL.go('p2')">进入项目 2 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 2：中国汽车销量排行榜
+     ============================================================ -->
+<section class="page" id="page-p2">
+  <div class="page-hero">
+    <div class="hero-badge">项目 2 · 语法与状态管理核心</div>
+    <h1>中国汽车销量排行榜应用</h1>
+    <p class="hero-sub">这个项目要解决一个核心疑问：<b>为什么我改了数据，界面会自动更新？</b>答案是 ArkTS 的"装饰器 + 状态管理"。搞懂这一章，后面所有界面逻辑都不再是玄学。</p>
+    <div class="hero-chips">
+      <span class="chip">ArkTS 基础知识</span><span class="chip">@Entry / @Component</span><span class="chip">@Builder</span><span class="chip">@State</span><span class="chip">@Prop</span><span class="chip">@Link</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>ArkTS 基础：四种最常用的语法</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          你不需要成为编程高手才能学鸿蒙，但下面四样东西是"识字量"，必须认识：<b>变量</b>（存数据的小盒子）、<b>函数</b>（可重复使用的动作）、<b>类</b>（批量造数据的模具）、<b>接口</b>（规定数据长什么样的清单）。
+        </div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>ArkTS 基础四件套</div><pre><code>// ① 变量：装数据的盒子，盒子有明确的"类型"
+let brand: string = '比亚迪';     // 字符串盒子
+let sales: number = 425;          // 数字盒子
+const IS_EV: boolean = true;      // 布尔盒子（const = 不许改）
+
+// ② 函数：一段可以重复调用的代码
+function formatSales(n: number): string {   // 传入 number，返回 string
+  return n + '万辆';
+}
+// 箭头函数写法（更常用，比如事件回调里）
+const format = (n: number): string =&gt; n + '万辆';
+
+// ③ 接口：规定"一条数据应该长什么样"
+interface CarRank {
+  brand: string;     // 品牌名
+  sales: number;     // 销量
+  isEV: boolean;     // 是否新能源
+}
+
+// ④ 类：模具，可以批量生产数据对象
+class Car {
+  brand: string = '';
+  sales: number = 0;
+  constructor(brand: string, sales: number) {
+    this.brand = brand;
+    this.sales = sales;
+  }
+}
+let car1 = new Car('比亚迪', 425);   // 用模具造一个对象</code></pre></div>
+        <details class="fold">
+          <summary>数组 & 遍历：排行榜的数据怎么存？（展开看）</summary>
+          <div class="fold-body">
+            <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>数组与 ForEach 遍历</div><pre><code>// 数组：一串数据的"糖葫芦"
+let ranks: CarRank[] = [
+  { brand: '比亚迪', sales: 425, isEV: true },
+  { brand: '大众',   sales: 266, isEV: false },
+  { brand: '丰田',   sales: 172, isEV: false }
+];
+
+// ForEach：把数组里的每一项变成界面上的一行
+// （排行榜列表就是用这个渲染出来的）
+ForEach(ranks, (item: CarRank, index: number) =&gt; {
+  RankItem({ car: item, no: index + 1 })   // 每一项生成一个自定义组件
+}, (item: CarRank) =&gt; item.brand)          // 第三个参数：唯一标识</code></pre></div>
+            <b>ForEach 记忆点</b>：第一个参数是数据数组，第二个参数是"每一项变成什么组件"，第三个参数是唯一 key（防止界面错乱）。
+          </div>
+        </details>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>装饰器五兄弟：@Entry / @Component / @Builder</div>
+        <div class="card-sub">"装饰器"就是写在代码上方的 @开头标签，给代码附加特殊含义。</div>
+        <table class="tbl">
+          <tr><th>装饰器</th><th>用在哪</th><th>作用（一句话）</th></tr>
+          <tr><td><code class="inline">@Entry</code></td><td>struct</td><td>这个页面是"路由能的入口页"，一个页面只有一个</td></tr>
+          <tr><td><code class="inline">@Component</code></td><td>struct</td><td>这是可复用的自定义组件（积木）</td></tr>
+          <tr><td><code class="inline">@Builder</code></td><td>方法</td><td>把一小段 UI 打包成一个"小程序"，随用随取</td></tr>
+          <tr><td><code class="inline">@State</code></td><td>变量</td><td>组件自己的状态：变了就刷新自己相关 UI</td></tr>
+          <tr><td><code class="inline">@Prop</code></td><td>变量</td><td>从父组件"拿"一份数据（单向，改了不影响父）</td></tr>
+          <tr><td><code class="inline">@Link</code></td><td>变量</td><td>和父组件"共享"数据（双向，改哪边都同步）</td></tr>
+        </table>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>@Builder：把重复的 UI 打包</div><pre><code>@Component
+struct RankList {
+  // @Builder：定义一个"UI 小工厂"
+  @Builder RankHeader(title: string) {
+    Row() {
+      Text(title).fontSize(18).fontWeight(FontWeight.Bold)
+      Blank()                                   // 占位，把两边撑开
+      Text('单位：万辆').fontSize(12).fontColor('#8C97AB')
+    }.width('100%')
+  }
+
+  build() {
+    Column() {
+      this.RankHeader('2024 中国汽车销量榜')      // 调用小工厂
+      // ... 下面接列表
+    }
+  }
+}</code></pre></div>
+        <div class="tip tip-info"><span class="tip-ico">💡</span><div><b>@Builder vs 自定义组件，怎么选？</b>只是"一段重复的小 UI"，用 @Builder 就行（轻量）；如果这块 UI 有自己的状态、要独立复用，就用 @Component 定义组件。简单记：小片 UI 用 Builder，大块积木用 Component。</div></div>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · ArkTS 和 JavaScript 到底差多少？</div>
+        <table class="wc-tbl">
+          <tr><th>写法</th><th>你在 JavaScript 里</th><th>ArkTS 要求</th><th>区别程度</th></tr>
+          <tr><td>声明变量</td><td class="webcell"><code>let x = 1</code></td><td><code>let x: number = 1</code></td><td>类型<b>必须写</b></td></tr>
+          <tr><td>箭头函数</td><td class="webcell"><code>const f = (a) =&gt; a + 1</code></td><td><code>const f = (a: number): number =&gt; a + 1</code></td><td>参数、返回值都要标类型</td></tr>
+          <tr><td>类 / 继承</td><td class="webcell"><code>class A {}</code></td><td>写法一样 ✅</td><td>几乎无差别</td></tr>
+          <tr><td>模板字符串</td><td class="webcell"><code>`你好 ${name}`</code></td><td>一样可用 ✅</td><td>无差别</td></tr>
+          <tr><td>async / await</td><td class="webcell">随便用</td><td>一样可用 ✅</td><td>无差别</td></tr>
+          <tr><td>对象字面量</td><td class="webcell"><code>{ name: 'x' }</code> 随手写</td><td>要先定义 <code>interface</code></td><td>ArkTS 不允许"无类型对象"</td></tr>
+          <tr><td><code>any</code> 类型</td><td class="webcell">到处用</td><td>❌ 不允许</td><td>必须写明确类型</td></tr>
+          <tr><td>数组直接比较</td><td class="webcell"><code>[1,2] == [1,2]</code> → false</td><td>同样是 false ⚠️</td><td>这个坑两边一样，要 join 后比</td></tr>
+        </table>
+        <p><b>那 @ 装饰器是什么？</b>你在 JS 里用过 <code class="inline">async</code> 这种"写在函数前面的关键字"吧？鸿蒙的 <code class="inline">@State</code> 是同一类东西——<b>给下面那行代码贴个标签，让编译器赋予它特殊含义</b>。</p>
+        <p>再类比 React：<code class="inline">useState</code> 是"函数调用式"的声明状态，鸿蒙的 <code class="inline">@State</code> 是"标签式"的声明状态。目的完全一样：<b>声明一份会自动触发界面刷新的数据</b>。所以你已经有"状态驱动界面"的思维了，只是换个记号。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>状态管理：数据一变，界面就变（本章核心）</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          传统写界面：数据改了，你得自己去"找到那个文字框、手动改文字"。<br>
+          鸿蒙写界面：你只管改数据，<b>系统自动帮你刷新所有用到该数据的地方</b>。中间这个"自动"的魔法，就是装饰器在起作用。
+        </div>
+        <p style="color:var(--text-2)">三个状态装饰器的关系，一张图看懂：</p>
+        <div class="stage">
+          <div class="stage-head">
+            <div class="stage-title"><span class="st-dot"></span>互动演示：数据是怎么流动的</div>
+            <div class="seg" id="p2-mode-seg">
+              <button class="on" data-mode="state">@State 自己用</button>
+              <button data-mode="prop">@Prop 拿一份</button>
+              <button data-mode="link">@Link 共享</button>
+            </div>
+          </div>
+          <div class="flow-board" id="p2-flow">
+            <div class="flow-node" id="p2-fn-parent"><b>父组件 计数器面板</b><span class="fn-val">count = <span id="p2-parent-val">10</span></span></div>
+            <div class="flow-arrow" id="p2-arrow1">→</div>
+            <div class="flow-node" id="p2-fn-child"><b>子组件 数字卡片</b><span class="fn-val">显示 = <span id="p2-child-val">10</span></span></div>
+          </div>
+          <div class="stage-actions" style="justify-content:center">
+            <button class="btn" id="p2-inc-parent">父组件 count +1</button>
+            <button class="btn ghost" id="p2-inc-child">子组件尝试 +1</button>
+            <button class="btn soft" id="p2-reset">重置</button>
+          </div>
+          <div class="analytic" id="p2-explain" style="margin-top:16px">
+            <b>@State（当前模式）</b>：状态属于"父组件自己"。点"父组件 +1"，父的 count 变化，传给子的显示值跟着变；子组件如果直接修改收到的数据，是<b>不会</b>影响父组件的——数据是单方面流下来的。
+          </div>
+        </div>
+        <div class="term-grid">
+          <div class="term-card"><h5>@State 记忆法</h5><p>「自己的小金库」——组件私有，自家人用，变了自家界面刷新。</p></div>
+          <div class="term-card"><h5>@Prop 记忆法</h5><p>「复印件」——父组件给你一份拷贝，你改你的，原件不受影响（单向：父→子）。</p></div>
+          <div class="term-card"><h5>@Link 记忆法</h5><p>「共用一张银行卡」——父子共享同一份数据，谁改都同步（双向绑定）。</p></div>
+        </div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>三种装饰器代码对照</div><pre><code>// 父组件：数据源头
+@Entry
+@Component
+struct ParentPage {
+  @State count: number = 10;          // 父组件自己的状态
+
+  build() {
+    Column() {
+      Text('父组件: ' + this.count)
+      ChildCard({ count: this.count })              // @Prop 用法：传值进去
+      ChildPanel({ countLink: $count })             // @Link 用法：加 $ 传引用
+    }
+  }
+}
+
+// 子组件 A：@Prop —— 只收不还（单向）
+@Component
+struct ChildCard {
+  @Prop count: number;                // 从父组件拷贝一份
+  build() { Text('子组件收到: ' + this.count) }
+}
+
+// 子组件 B：@Link —— 双向绑定
+@Component
+struct ChildPanel {
+  @Link countLink: number;            // 和父组件同一份数据
+  build() {
+    Button('子组件 +1')
+      .onClick(() =&gt; {
+        this.countLink++;             // 改这里，父组件的 count 也同步变
+      })
+  }
+}</code></pre></div>
+        <div class="tip tip-warn"><span class="tip-ico">🎯</span><div><b>考点提醒</b>：@Prop 是单向（父改子变，子改父不变）；@Link 是双向（父子互相同步），用 <code class="inline">$变量名</code> 的方式传递。<b>子组件不能直接修改 @Prop 的值</b>，这是常考判断题。</div></div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">④</span>项目实现：排行榜是怎么搭出来的</div>
+        <ul class="slist">
+          <li><b>第 1 步 · 准备数据</b>：把品牌、销量等数据用数组 + 接口定义好（模拟数据）。</li>
+          <li><b>第 2 步 · 构建自定义组件</b>：把"一行排行"抽成 <code class="inline">RankItem</code> 组件，用 <b>@Prop</b> 接收每条数据。</li>
+          <li><b>第 3 步 · 界面组装</b>：Column 里放标题（@Builder）+ 用 <b>ForEach</b> 循环生成每一行。</li>
+          <li><b>第 4 步 · 加交互</b>：点击某一行展开/收起详情，状态变化由 @State 驱动。</li>
+        </ul>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>项目骨架（简化版）</div><pre><code>interface CarRank { brand: string; sales: number; logo: string; }
+
+@Entry
+@Component
+struct RankPage {
+  @State expanded: number = -1;       // 当前展开的行；-1 表示都收起
+
+  private ranks: CarRank[] = [ /* 数据数组… */ ];
+
+  build() {
+    Column() {
+      Text('中国汽车销量排行榜').fontSize(22).fontWeight(FontWeight.Bold)
+      List() {
+        ForEach(this.ranks, (item: CarRank, index: number) =&gt; {
+          ListItem() {
+            RankItem({
+              car: item,
+              no: index + 1,
+              isOpen: this.expanded === index,     // 状态：这一行展开吗？
+              onToggle: () =&gt; {                      // 点击回调
+                this.expanded = (this.expanded === index) ? -1 : index;
+              }
+            })
+          }
+        }, (item: CarRank) =&gt; item.brand)
+      }.layoutWeight(1)
+    }
+  }
+}</code></pre></div>
+        <div class="tip tip-ok"><span class="tip-ico">✅</span><div>右边手机里就是成品效果：点任意一行，它会展开/收起——这就是 <b>@State 记录"哪行展开了"+ 条件渲染</b>的组合拳。</div></div>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content">
+              <div class="m-page" style="background:#F4F6FB;">
+                <div class="m-titlebar" style="justify-content:center;font-size:16px;">🚗 中国汽车销量排行榜<div style="font-size:11px;color:#8C97AB;font-weight:400;margin-left:6px;">2024·示例数据</div></div>
+                <div class="m-pad rank-list" id="p2-rank-list" style="padding-bottom:16px;"></div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>点任意一行，它会展开显示更多信息；再点一下收起。想想看：展开状态存在哪个变量里？</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 2 完成 ✔</b><span>你现在已经掌握了鸿蒙开发最重要的思想：状态驱动界面。下一章开始搭真正的复杂界面。</span></div>
+    <button class="btn" onclick="HL.go('p3')">进入项目 3 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 3：乐购应用
+     ============================================================ -->
+<section class="page" id="page-p3">
+  <div class="page-hero">
+    <div class="hero-badge">项目 3 · 界面搭建核心</div>
+    <h1>乐购应用（ArkUI 组件与布局）</h1>
+    <p class="hero-sub">这一章教你"用组件拼界面"：<b>基础组件</b>是砖头（文字、按钮、图片），<b>容器组件</b>是水泥（决定砖头怎么摆），<b>路由</b>是把多个页面串起来。学完你就能搭出任意常见的 App 界面。</p>
+    <div class="hero-chips">
+      <span class="chip">ArkUI 基础组件</span><span class="chip">ArkUI 容器组件</span><span class="chip">ArkUI 路由</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>基础组件：搭界面的"砖头"</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          鸿蒙官方已经做好了各种"标准零件"：显示文字的 <b>Text</b>、按钮 <b>Button</b>、图片 <b>Image</b>、输入框 <b>TextInput</b>……你要做的就是把它们拼起来，再用"链式属性"（.fontSize()、.width()…）调外观。下面这些零件都<b>可以直接玩</b>。
+        </div>
+      </article>
+
+      <div class="stage">
+        <div class="stage-head">
+          <div class="stage-title"><span class="st-dot"></span>互动演示：组件画廊（全部可互动）</div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-cell">
+            <span class="gc-name">Text 文本</span>
+            <div class="gc-demo">
+              <div style="font-size:20px;font-weight:800;color:#16233A;">标题文字</div>
+              <div style="font-size:12.5px;color:#8C97AB;margin-top:4px;">小号灰色说明文字</div>
+            </div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">Button 按钮</span>
+            <div class="gc-demo" style="display:flex;align-items:center;gap:9px;">
+              <button class="btn sm" id="p3-btn-demo">点我</button>
+              <span style="font-size:12.5px;color:#5A6B8C;">已点 <b id="p3-btn-count" style="color:#0A59F7;">0</b> 次</span>
+            </div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">Image 图片</span>
+            <div class="gc-demo" style="font-size:34px;line-height:1;">🏞️</div>
+            <div style="font-size:11px;color:#96A2BC;">（这里用图形模拟真实图片）</div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">TextInput 输入框</span>
+            <div class="gc-demo">
+              <input id="p3-input" placeholder="试着输入点什么…" style="width:100%;padding:9px 13px;border-radius:11px;border:1.5px solid #D9E2F2;font-size:13.5px;outline:none;font-family:inherit;">
+              <div style="font-size:12px;color:#8C97AB;margin-top:7px;">实时读到的内容：<b id="p3-input-echo" style="color:#0A59F7;">（空）</b></div>
+            </div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">Progress 进度条</span>
+            <div class="gc-demo">
+              <div style="height:8px;border-radius:8px;background:#E5EBF6;overflow:hidden;"><div id="p3-progress" style="height:100%;width:0%;border-radius:8px;background:linear-gradient(90deg,#0A59F7,#00C8FF);transition:width .25s ease;"></div></div>
+              <div style="display:flex;justify-content:space-between;margin-top:8px;align-items:center;">
+                <button class="btn xs soft" id="p3-progress-btn">加载</button>
+                <span id="p3-progress-txt" style="font-size:12px;color:#5A6B8C;font-family:var(--mono);">0%</span>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">Slider 滑块</span>
+            <div class="gc-demo">
+              <input type="range" class="m-slider" id="p3-slider" min="0" max="100" value="35">
+              <div style="font-size:12px;color:#8C97AB;margin-top:7px;">当前值：<b id="p3-slider-val" style="color:#0A59F7;">35</b></div>
+            </div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">Toggle 开关</span>
+            <div class="gc-demo">
+              <label class="switch"><input type="checkbox" id="p3-toggle"><span class="sw-track"></span></label>
+              <div style="font-size:12px;color:#8C97AB;margin-top:7px;">状态：<b id="p3-toggle-txt" style="color:#F53F3F;">关</b></div>
+            </div>
+          </div>
+          <div class="gallery-cell">
+            <span class="gc-name">Rating 评分</span>
+            <div class="gc-demo" id="p3-rating" style="font-size:22px;cursor:pointer;user-select:none;letter-spacing:3px;">☆☆☆☆☆</div>
+            <div style="font-size:12px;color:#8C97AB;">点星星打分</div>
+          </div>
+        </div>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>容器组件：决定"砖头怎么摆"</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          光有砖头堆不成房子，还得决定"横着放还是竖着放、要不要叠起来"。<b>Column = 从上往下排（竖），Row = 从左往右排（横），Stack = 叠在一起</b>，这三个就能应付 80% 的界面。List / Grid / Tabs 是"带功能的容器"，处理列表、网格和标签页。
+        </div>
+      </article>
+
+      <div class="stage">
+        <div class="stage-head">
+          <div class="stage-title"><span class="st-dot"></span>互动演示：容器布局切换</div>
+          <div class="seg" id="p3-layout-seg">
+            <button class="on" data-l="column">Column 竖排</button>
+            <button data-l="row">Row 横排</button>
+            <button data-l="stack">Stack 层叠</button>
+            <button data-l="flex">Flex 换行</button>
+            <button data-l="grid">Grid 网格</button>
+          </div>
+        </div>
+        <div class="layout-stage" id="p3-layout-stage"></div>
+        <div class="analytic" id="p3-layout-note" style="margin-top:12px;"></div>
+      </div>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · 这是全课程最有用的一张表（建议存书签）</div>
+        <p><b>① HTML 标签 → ArkUI 组件</b>（你写过的标签，换成右边这些）</p>
+        <table class="wc-tbl">
+          <tr><th>HTML 标签</th><th>ArkUI 组件</th><th>注意</th></tr>
+          <tr><td class="webcell"><code>&lt;div&gt;</code></td><td><code>Column() {} / Row() {}</code></td><td>div 不分方向，鸿蒙必须选一个方向容器</td></tr>
+          <tr><td class="webcell"><code>&lt;p&gt; &lt;span&gt; &lt;h1&gt;…</code></td><td><code>Text('内容')</code></td><td>全用 Text，靠 <code>.fontSize()</code> 区分层级</td></tr>
+          <tr><td class="webcell"><code>&lt;button&gt;</code></td><td><code>Button('文字')</code></td><td>文字直接当参数传</td></tr>
+          <tr><td class="webcell"><code>&lt;img&gt;</code></td><td><code>Image($r('app.media.pic'))</code></td><td>引用工程内资源用 $r()</td></tr>
+          <tr><td class="webcell"><code>&lt;input&gt;</code></td><td><code>TextInput({ placeholder: '…' })</code></td><td>—</td></tr>
+          <tr><td class="webcell"><code>&lt;ul&gt; + &lt;li&gt;</code></td><td><code>List() { ListItem() {} }</code></td><td>带滚动能力</td></tr>
+          <tr><td class="webcell"><code>&lt;video&gt;</code></td><td><code>Video()</code> 或 AVPlayer</td><td>详见项目 8</td></tr>
+        </table>
+        <p><b>② CSS 属性 → 链式方法</b>（左边写惯了的，右边照抄）</p>
+        <table class="wc-tbl">
+          <tr><th>CSS</th><th>ArkTS 链式属性</th><th>CSS</th><th>ArkTS 链式属性</th></tr>
+          <tr><td class="webcell"><code>font-size: 16px</code></td><td><code>.fontSize(16)</code></td><td class="webcell"><code>border-radius: 12px</code></td><td><code>.borderRadius(12)</code></td></tr>
+          <tr><td class="webcell"><code>color: #333</code></td><td><code>.fontColor('#333')</code></td><td class="webcell"><code>border: 1px solid #eee</code></td><td><code>.border({ width: 1, color: '#eee' })</code></td></tr>
+          <tr><td class="webcell"><code>background-color</code></td><td><code>.backgroundColor('#fff')</code></td><td class="webcell"><code>opacity: 0.5</code></td><td><code>.opacity(0.5)</code></td></tr>
+          <tr><td class="webcell"><code>width: 200px</code></td><td><code>.width(200)</code></td><td class="webcell"><code>width: 100%</code></td><td><code>.width('100%')</code></td></tr>
+          <tr><td class="webcell"><code>margin: 10px</code></td><td><code>.margin(10)</code></td><td class="webcell"><code>margin-top: 10px</code></td><td><code>.margin({ top: 10 })</code></td></tr>
+          <tr><td class="webcell"><code>padding: 10px 20px</code></td><td><code>.padding({ top:10, bottom:10, left:20, right:20 })</code></td><td class="webcell"><code>font-weight: bold</code></td><td><code>.fontWeight(FontWeight.Bold)</code></td></tr>
+          <tr><td class="webcell"><code>display:flex; direction:row</code></td><td><code>Row() {}</code></td><td class="webcell"><code>display:flex; direction:column</code></td><td><code>Column() {}</code></td></tr>
+          <tr><td class="webcell"><code>justify-content: center</code></td><td><code>.justifyContent(FlexAlign.Center)</code></td><td class="webcell"><code>align-items: center</code></td><td><code>.alignItems(HorizontalAlign.Center)</code></td></tr>
+          <tr><td class="webcell"><code>flex: 1</code></td><td><code>.layoutWeight(1)</code></td><td class="webcell"><code>position: absolute</code></td><td><code>Stack() {}</code> 层叠布局</td></tr>
+          <tr><td class="webcell"><code>cursor: pointer</code></td><td>移动端没有鼠标概念，忽略</td><td class="webcell"><code>:hover</code> 伪类</td><td>用状态变量 + 条件属性（或 hoverEffect）</td></tr>
+        </table>
+        <p>💡 <b>核心差异一句话</b>：CSS 是"选择器 + 属性块"和元素<b>分开写</b>；鸿蒙是样式<b>直接贴在组件调用链上</b>——所以没有 class 选择器、不用管样式冲突，但也没有"全局样式复用"，要复用就用 <code class="inline">@Styles</code> / <code class="inline">@Extend</code>。</p>
+        <p>🎮 忘了对照？上方"布局演示"里切到 Grid/Row 模式再感受一下；表格记不住就收藏本页，或者去「关键词词典」搜。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>路由：页面之间怎么"串门"</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          一个 App 有很多页面，就像一本书有很多页。路由（router）就是"翻页":<b>pushUrl</b> 翻到下一页，<b>back</b> 翻回上一页。<br>翻页前记得做两件事：① 新页面在 <code class="inline">main_pages.json</code> 里"登记"；② 跳转时告诉系统"去哪页、带什么参数"。
+        </div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>页面跳转与返回</div><pre><code>// ① 跳转到商品详情页，并携带参数
+router.pushUrl({
+  url: 'pages/ProductDetail',      // 目标页面路径（必须已在 main_pages.json 登记）
+  params: { id: 1001, name: '无线降噪耳机' }   // 要带过去的数据
+});
+
+// ② 在详情页里取出参数
+const params = router.getParams() as Record&lt;string, Object&gt;;
+
+// ③ 返回上一页
+router.back();
+
+// 补充：也可以直接 replaceUrl 替换当前页（返回时不会回到它）</code></pre></div>
+        <div class="tip tip-info"><span class="tip-ico">💡</span><div>右侧手机就是这个项目做出来的"乐购"：点任意商品卡片 → 进入详情页 → 左上角返回。感受一下 pushUrl 和 back 的效果。</div></div>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen" style="position:relative;">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content" style="position:relative;overflow:hidden;">
+              <!-- 首页 -->
+              <div class="route-page" id="p3-route-home" style="position:absolute;">
+                <div style="padding:14px 16px 10px;background:#fff;">
+                  <div style="font-size:22px;font-weight:800;">乐购 <span style="font-size:12px;font-weight:400;color:#8C97AB;">· 首页 pages/Home</span></div>
+                  <div style="margin-top:10px;background:#F1F4FA;border-radius:12px;padding:9px 14px;font-size:13px;color:#96A2BC;">🔍 搜索商品…</div>
+                </div>
+                <div style="padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:11px;overflow-y:auto;flex:1;" id="p3-goods"></div>
+                <div class="m-tabbar">
+                  <div class="m-tab on"><span class="mt-ico">🏠</span>首页</div>
+                  <div class="m-tab"><span class="mt-ico">🧺</span>购物车</div>
+                  <div class="m-tab"><span class="mt-ico">👤</span>我的</div>
+                </div>
+              </div>
+              <!-- 详情页 -->
+              <div class="route-page slide-in" id="p3-route-detail" style="position:absolute;">
+                <div class="rp-head"><span class="rp-back" id="p3-back">‹</span><span>商品详情 <span style="font-size:12px;font-weight:400;color:#8C97AB;">pages/ProductDetail</span></span></div>
+                <div style="flex:1;overflow-y:auto;padding:18px;">
+                  <div id="p3-detail-img" style="font-size:86px;text-align:center;padding:24px 0;background:#fff;border-radius:20px;">🎧</div>
+                  <div style="background:#fff;border-radius:20px;padding:18px;margin-top:12px;">
+                    <div id="p3-detail-name" style="font-size:18px;font-weight:700;">无线降噪耳机</div>
+                    <div id="p3-detail-desc" style="font-size:12.5px;color:#8C97AB;margin-top:6px;">主动降噪 · 40 小时续航 · 轻盈佩戴</div>
+                    <div style="display:flex;align-items:baseline;gap:6px;margin-top:12px;">
+                      <span style="font-size:13px;color:#F53F3F;font-weight:700;">¥</span>
+                      <span id="p3-detail-price" style="font-size:26px;color:#F53F3F;font-weight:800;font-family:var(--mono);">499</span>
+                    </div>
+                  </div>
+                  <button class="m-btn" id="p3-add-cart" style="margin-top:16px;">加入购物车</button>
+                  <div style="font-size:11.5px;color:#B0BACA;text-align:center;margin-top:10px;">接收到的参数：<span id="p3-detail-params" style="font-family:var(--mono);">-</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>点商品 → 进详情（pushUrl + 传参）；点 ‹ 返回首页（router.back）。注意详情页底部显示的"接收到的参数"。</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 3 完成 ✔</b><span>组件 + 布局 + 路由 = 会搭界面了。下一步给 App 装上"记忆"和数据存储。</span></div>
+    <button class="btn" onclick="HL.go('p4')">进入项目 4 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 4：手势密码应用
+     ============================================================ -->
+<section class="page" id="page-p4">
+  <div class="page-hero">
+    <div class="hero-badge">项目 4 · 数据存储 + 炫酷组件</div>
+    <h1>手势密码应用（ArkData 与 PatternLock）</h1>
+    <p class="hero-sub">解锁图案是怎么被"记住"的？这一章回答两件事：<b>数据存哪里</b>（ArkData 数据管理家族）和 <b>九宫格怎么画</b>（PatternLock 组件）。右边就是一块真的可以画的九宫格，先去玩一圈！</p>
+    <div class="hero-chips">
+      <span class="chip">ArkData 概述</span><span class="chip">Preferences API</span><span class="chip">分布式键值数据库</span><span class="chip">关系型数据库</span><span class="chip">PatternLock 组件</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>ArkData：数据到底存在哪？</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          App 的"记忆"要分场景选柜子：<b>存个小设置</b>（比如主题色、是否记住密码）用 Preferences；<b>存用户输入的大量数据</b>（比如一整个通讯录）用关系型数据库；<b>想让数据在多台设备间同步</b>（手机改、手表也变）用分布式键值数据库。
+        </div>
+        <table class="tbl">
+          <tr><th>方案</th><th>像什么</th><th>适合存什么</th></tr>
+          <tr><td><b>Preferences</b><br>轻量键值存储</td><td>一个小标签柜<br>（key → value）</td><td>登录状态、是否首次启动、<b>手势密码</b>、界面设置</td></tr>
+          <tr><td><b>分布式键值数据库</b></td><td>一个会"自动同步"的标签柜</td><td>需要跨设备（手机↔手表↔平板）实时同步的小数据</td></tr>
+          <tr><td><b>关系型数据库</b><br>（RDB）</td><td>一张 Excel 表格<br>（行 × 列）</td><td>大量结构化数据：联系人、课程表、聊天记录</td></tr>
+        </table>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>Preferences：本项目真正用到的方案</div>
+        <div class="card-sub">把九宫格密码存进手机——就用它。四步走：拿到柜子 → 存东西 → 取东西 → 记住别忘 flush。</div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>Preferences 基本用法</div><pre><code>import { preferences } from '@kit.ArkData';
+
+// ① 获取实例（拿柜子）：第一个参数是上下文，第二个是柜子名
+let store = await preferences.getPreferences(context, 'MyStore');
+
+// ② 存数据：柜子里放一个键值对
+await store.put('pattern', '0,1,2,4,6,7,8');   // key 是 'pattern'，value 是图案字符串
+await store.flush();      // ⚠️ 关键一步：flush 才真正写入磁盘！
+
+// ③ 读数据：从柜子里取
+let value = await store.get('pattern', 'default');   // 第二个参数是"取不到时的默认值"
+
+// ④ 删数据
+await store.delete('pattern');
+await store.flush();</code></pre></div>
+        <div class="tip tip-warn"><span class="tip-ico">⚠️</span><div><b>最常见的坑</b>：存完忘记 <code class="inline">flush()</code> —— 数据只在内存里，App 一关就丢。记住口诀：<b>"put 之后必 flush"</b>。</div></div>
+
+        <div style="margin-top:18px;">
+          <div class="card-title" style="font-size:14.5px;"><span class="ct-icon">📦</span>实时观察：右边手机里操作时，这个"柜子"会变化</div>
+          <table class="kv-table" id="p4-kv-table">
+            <thead><tr><th>key（键）</th><th>value（值）</th><th>说明</th></tr></thead>
+            <tbody id="p4-kv-body">
+              <tr><td colspan="3" style="color:#B0BACA;font-family:var(--font);">（还没有数据——先去右边设置一个手势密码）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · localStorage ↔ Preferences</div>
+        <p>你会用 localStorage 的话，Preferences 就是"<b>异步版的 localStorage</b>"，用法直接对照：</p>
+        <div class="code-cmp2">
+          <div class="cc-col">
+            <div class="cc-tag web">▸ Web：localStorage（同步、即时生效）</div>
+            <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>script.js</div><pre><code>// 存
+localStorage.setItem('pattern', '0,1,2');
+
+// 取
+const v = localStorage.getItem('pattern');</code></pre></div>
+          </div>
+          <div class="cc-col">
+            <div class="cc-tag ohm">▸ 鸿蒙：Preferences（异步、要 flush）</div>
+            <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>store.ets</div><pre><code>// 存（await + flush 才落盘）
+await store.put('pattern', '0,1,2');
+await store.flush();
+
+// 取（还能给默认值）
+const v = await store.get('pattern', '默认值');</code></pre></div>
+          </div>
+        </div>
+        <p><b>三个差异，记住就不踩坑</b>：① 全部是 <code class="inline">await</code> 异步操作；② 改完要 <code class="inline">flush()</code> 才真正写盘；③ <code class="inline">get()</code> 的第二个参数是"取不到时的默认值"，比 localStorage 友好。</p>
+        <p>📦 大数据场景：你用过 IndexedDB 或后端 SQL 的话，鸿蒙对应的是<b>关系型数据库（RDB）</b>——建表、插入、查询那套几乎一样，见下方演示。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>分布式键值数据库 & 关系型数据库（认识即可）</div>
+        <div class="grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="analytic">
+            <b>📡 分布式键值数据库</b><br>
+            同样是 key → value 的标签柜，但支持"组网"：<br>
+            · 设备登录同一华为账号并组网后，一台设备写入，其它设备自动同步<br>
+            · 典型场景：手机上暂停的视频，平板上继续播放<br>
+            · 注意：需要<b>权限 + 组网条件</b>，属于进阶能力，本项目了解即可
+          </div>
+          <div class="analytic">
+            <b>🗄️ 关系型数据库（RDB）</b><br>
+            基于 SQLite，用"表"存数据，支持增删改查（CRUD）：<br>
+            · 建表：<code class="inline">executeSql('CREATE TABLE …')</code><br>
+            · 插入：<code class="inline">insert('user', values)</code><br>
+            · 查询：<code class="inline">querySql('SELECT * FROM …')</code><br>
+            · 适合通讯录、成绩单这类"表格型"数据
+          </div>
+        </div>
+        <div id="p4-rdb-box" class="stage" style="margin-top:6px;">
+          <div class="stage-head">
+            <div class="stage-title"><span class="st-dot"></span>互动演示：关系型数据库长什么样</div>
+            <button class="btn sm soft" id="p4-rdb-add">+ 插入一条记录（insert）</button>
+          </div>
+          <table class="tbl" id="p4-rdb-table">
+            <tr><th>id</th><th>name</th><th>grade</th><th>city</th></tr>
+            <tr><td>1</td><td>小明</td><td>92</td><td>武汉</td></tr>
+            <tr><td>2</td><td>小红</td><td>88</td><td>长沙</td></tr>
+          </table>
+          <div style="font-size:12px;color:#8C97AB;">这是"user 表"——后面插入的记录，模拟 <code class="inline">insert('user', …)</code> 的效果，相当于往 Excel 里加一行。</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">④</span>PatternLock：九宫格组件（本项目的主角）</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          官方已经把"九宫格画图案"这个组件做好了，你只管两件事：<b>调样式</b>（点多大、线多粗、什么颜色）和 <b>接回调</b>（用户画完了，把画的是哪几个点告诉你）。回调给你的是一串数字，比如 <code class="inline">[0, 1, 2, 4, 6]</code>，分别对应九宫格上从左到右、从上到下的编号。
+        </div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>PatternLock 核心用法</div><pre><code>@Entry
+@Component
+struct LockPage {
+  @State message: string = '请绘制解锁图案';
+  private savedPattern: string = '';         // 已保存的图案（实际项目存 Preferences）
+  private controller: PatternLockController = new PatternLockController();
+
+  build() {
+    Column() {
+      Text(this.message).fontSize(16)
+
+      PatternLock(this.controller)             // 传入控制器，用于重置状态
+        .sideLength(240)                       // 九宫格边长
+        .circleRadius(10)                      // 圆点半径
+        .pathStrokeWidth(14)                   // 连线粗细
+        .regularColor('#C9D4E6')               // 未选中点的颜色
+        .selectedColor('#0A59F7')              // 选中点的颜色
+        .activeColor('#66A3FF')                // 高亮点颜色
+        .pathColor('#0A59F7')                  // 连线颜色
+        .onPatternComplete((input: number[]) =&gt; {   // 画完的回调
+          const str = input.join(',');         // 例：'0,1,2,4'
+          if (str === this.savedPattern) {
+            this.message = '✅ 解锁成功';
+          } else {
+            this.message = '❌ 图案错误，请重试';
+            this.controller.setChallengeResult(PatternLockChallengeResult.WRONG);
+            this.controller.reset();           // 重置九宫格
+          }
+        })
+    }
+  }
+}</code></pre></div>
+        <div class="term-grid">
+          <div class="term-card"><h5>input 参数</h5><p>回调参数是 number[]，数字是"经过点的编号（0~8）"，顺序 = 手指滑动顺序。</p></div>
+          <div class="term-card"><h5>至少 4 个点</h5><p>行业惯例（3 个点太容易被猜到）。本演示也按"最少 4 点"校验。</p></div>
+          <div class="term-card"><h5>controller.reset()</h5><p>画完了想清空重来？调用控制器 reset 即可。</p></div>
+          <div class="term-card"><h5>数组比较的坑</h5><p>ArkTS 里数组不能直接用 == 比较，要 join 成字符串或用循环逐项比。</p></div>
+        </div>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content" style="background:#fff;">
+              <div class="m-page" style="align-items:center;padding:26px 20px;">
+                <div style="font-size:17px;font-weight:800;margin-bottom:4px;">🔐 手势密码</div>
+                <div id="p4-phase-badge" style="font-size:11.5px;color:#0A59F7;background:#EAF2FF;border-radius:999px;padding:3px 14px;font-weight:700;">阶段：设置密码</div>
+                <canvas id="p4-canvas" class="pattern-canvas" style="margin-top:14px;"></canvas>
+                <div class="pattern-msg" id="p4-msg" style="margin-top:10px;">按住圆点滑动，画出你的解锁图案（至少 4 个点）</div>
+                <div id="p4-path-view" style="font-family:var(--mono);font-size:11.5px;color:#8C97AB;margin-top:6px;min-height:16px;"></div>
+                <div style="display:flex;gap:10px;margin-top:14px;">
+                  <button class="btn sm ghost" id="p4-reset-btn">清空重来</button>
+                  <button class="btn sm soft" id="p4-forget-btn">删除密码</button>
+                </div>
+                <div style="font-size:11px;color:#B0BACA;margin-top:12px;text-align:center;line-height:1.7;">流程：设置（画一次）→ 确认（再画一次）→ 解锁（画对的图案）<br>操作过程会同步到左侧的 Preferences"柜子"里</div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>按住任意圆点拖动连线，松开完成一次输入。先设置、再确认、最后验证解锁。设 4~8 个点的图案最好玩。</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 4 完成 ✔</b><span>你现在既会存数据，又会用组件接住用户的手势。下一章把"网页"嵌进 App。</span></div>
+    <button class="btn" onclick="HL.go('p5')">进入项目 5 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 5：体育用品商城（ArkWeb）
+     ============================================================ -->
+<section class="page" id="page-p5">
+  <div class="page-hero">
+    <div class="hero-badge">项目 5 · 混合开发</div>
+    <h1>体育用品商城（ArkWeb 网页混合开发）</h1>
+    <p class="hero-sub">公司已经有一个做好的购物网页，不想重写怎么办？<b>直接嵌进 App 里！</b>这一章学两件事：怎么把网页装进 App（Web 组件），以及怎么让网页和 App 互相"打电话"（双向通信）。</p>
+    <div class="hero-chips">
+      <span class="chip">ArkWeb 简介</span><span class="chip">Web 组件生命周期</span><span class="chip">加载页面</span><span class="chip">渲染与布局</span><span class="chip">应用侧调用前端</span><span class="chip">前端调用应用侧</span>
+    </div>
+  </div>
+
+  <div class="lesson-main">
+
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">①</span>ArkWeb：给 App 开一扇"网页窗口"</div>
+      <div class="plain-talk">
+        <div class="pt-label">💬 说人话</div>
+        Web 组件就像一个"小型浏览器"，可以嵌在 App 的任意位置显示网页。它有两副面孔：<br>
+        · 对用户：就是一个普通的网页界面；<br>
+        · 对开发者：它是一座桥——App 可以执行网页里的代码，网页也可以调用 App 的能力（弹窗、支付、相机……）。
+      </div>
+      <ul class="slist">
+        <li><b>什么时候用？</b>① 已有现成网页想快速搬到 App；② 活动页、协议页这类"经常变"的内容（改网页不用重新发版本）；③ 跨平台复用（同一套网页，安卓/iOS/鸿蒙都能嵌）。</li>
+        <li><b>什么时候不用？</b>纯原生功能（如高性能动画、系统能力密集的页面）还是用 ArkUI 原生写更好。</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">②</span>Web 组件的生命周期：网页的"开机流程"</div>
+      <div class="card-sub">点一点下面的流程节点，对应到真实代码里的回调函数：</div>
+      <div class="stage">
+        <div class="arch-board" id="p5-lc-board">
+          <div class="arch-col a1" data-detail="【aboutToAppear】组件即将显示。适合做一些准备工作，但此时 Web 控制器还没绑定，不能加载页面。">
+            <h5>1️⃣ 组件即将显示</h5><div class="arch-box">aboutToAppear()</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col a2" data-detail="【onControllerAttached】控制器绑定到 Web 组件。官方推荐在这里注册 javaScriptProxy（前端要调用的应用侧对象）——太早太晚都会失效。">
+            <h5>2️⃣ 控制器就位</h5><div class="arch-box">onControllerAttached()<br><b>← 注册 bridge 的推荐时机</b></div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col a3" data-detail="【onPageBegin】页面开始加载。此时可以显示一个进度条，或执行控制器初始化代码。">
+            <h5>3️⃣ 开始加载</h5><div class="arch-box">onPageBegin(url)</div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col a4" data-detail="【onPageEnd】页面加载完成。此时可以放心调用 runJavaScript —— 网页的函数和元素都准备好了。">
+            <h5>4️⃣ 加载完成</h5><div class="arch-box">onPageEnd(url)<br><b>← runJavaScript 的安全时机</b></div>
+          </div>
+        </div>
+        <div class="arch-detail" id="p5-lc-detail"><b>👆 点任意一栏</b>看详细说明。</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">③</span>双向通信：App 与网页的"打电话"机制</div>
+      <div class="msg-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="analytic">
+          <b>📞 方向一：App → 网页</b><br>
+          用 <code class="inline">controller.runJavaScript('函数名()')</code><br>
+          相当于 App 拿起电话打给网页："执行一下你那边叫 changeColor 的函数！"<br>
+          <b>时机要求</b>：必须等网页加载完（onPageEnd 后）
+        </div>
+        <div class="analytic">
+          <b>📞 方向二：网页 → App</b><br>
+          用 <code class="inline">javaScriptProxy</code> 把 App 的对象"注册"进网页的 window <br>
+          网页里就能直接 <code class="inline">window.对象名.方法()</code> 调用 App 的能力<br>
+          <b>时机要求</b>：推荐在 onControllerAttached 时注册
+        </div>
+      </div>
+      <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>两个方向的完整代码</div><pre><code>import { webview } from '@kit.ArkWeb';
+
+// —— 应用侧：准备一个"可以被网页调用"的对象 ——
+class ShopBridge {
+  showToast(msg: string) {
+    console.info('网页调用了我：' + msg);   // 收到网页的"电话"
+  }
+  getToken(): string {
+    return 'APP_TOKEN_9527';               // 网页需要的数据，App 给它
+  }
+}
+
+@Entry
+@Component
+struct ShopPage {
+  controller: webview.WebviewController = new webview.WebviewController();
+  bridge: ShopBridge = new ShopBridge();
+
+  build() {
+    Column() {
+      // ① App → 网页：加载完成后执行网页里的 JS 函数
+      Button('给网页换个背景色')
+        .onClick(() =&gt; {
+          this.controller.runJavaScript("setBgColor('#EAF2FF')");
+        })
+
+      Web({ src: $rawfile('shop.html'), controller: this.controller })
+        .javaScriptAccess(true)                    // 允许执行 JS
+        // ② 网页 → App：把 bridge 注册进网页
+        .javaScriptProxy({
+          object: this.bridge,                     // 要注入的对象
+          name: 'shopBridge',                      // 网页里通过 window.shopBridge 使用
+          methodList: ['showToast', 'getToken'],   // 允许被调用的方法清单
+          controller: this.controller
+        })
+        .onPageEnd(() =&gt; {
+          console.info('网页加载完成，现在可以放心 runJavaScript 了');
+        })
+    }
+  }
+}</code></pre></div>
+      <div class="tip tip-warn"><span class="tip-ico">⚠️</span><div><b>两个高频坑</b>：① 网页没加载完就 runJavaScript → 函数不存在，静默失败；② methodList 里写错方法名 → 网页调用时报"方法不存在"。调试时记得给 Web 开启调试开关，用浏览器那套开发者工具排查。</div></div>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · iframe ↔ Web 组件（几乎一一对应）</div>
+        <p>Web 组件 ≈ 鸿蒙里的 iframe，连生命周期都长得像。真正不同的只有"通信方式"：</p>
+        <table class="wc-tbl">
+          <tr><th>能力</th><th>Web（iframe）</th><th>鸿蒙（Web 组件）</th></tr>
+          <tr><td>加载一个页面</td><td class="webcell"><code>&lt;iframe src="x.html"&gt;</code></td><td><code>Web({ src: $rawfile('x.html') })</code></td></tr>
+          <tr><td>加载完成时机</td><td class="webcell"><code>iframe.onload</code></td><td><code>.onPageEnd(() =&gt; {})</code></td></tr>
+          <tr><td>父 → 子（调网页里的函数）</td><td class="webcell"><code>postMessage()</code> + 网页监听 message</td><td><code>controller.runJavaScript('fn()')</code> —— <b>直接执行</b>网页里的 JS</td></tr>
+          <tr><td>子 → 父（网页调原生）</td><td class="webcell"><code>postMessage()</code> + 父页监听 + 判断来源</td><td><code>javaScriptProxy</code> 注册一个对象，网页里 <code>window.shopBridge.fn()</code> <b>像调普通对象一样调用</b></td></tr>
+          <tr><td>安全沙箱</td><td class="webcell">浏览器同源策略限制</td><td>Web 组件内是网页环境，但原生侧能力需显式注册才暴露</td></tr>
+        </table>
+        <p>💡 <b>体感差异</b>：iframe 通信用的是"发消息 → 监听 → 判断来源"的样板代码；Web 组件是你"注册一个对象进去、网页直接调方法"，更像调用本地函数。下面演示里的通信日志，就是这两种调用过程的现场。</p>
+      </div>
+    </article>
+
+    <div class="stage">
+      <div class="stage-head">
+        <div class="stage-title"><span class="st-dot"></span>互动演示：商城网页 ⇄ App 双向通信（模拟）</div>
+        <span style="font-size:12px;color:#8C97AB;">左侧是"网页"，右侧是"App 控制台"</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;">
+        <!-- 模拟网页 -->
+        <div class="webview-frame">
+          <div class="webview-bar">
+            <div class="wv-dots"><i></i><i></i><i></i></div>
+            <div class="wv-url">🛍️ shop/index.html（本地网页 · $rawfile）</div>
+          </div>
+          <div id="p5-page" style="background:#F2F5FB;padding:16px;min-height:330px;transition:background .4s ease;">
+            <div id="p5-sale" style="display:none;background:linear-gradient(90deg,#FF7A00,#FFB800);color:#fff;font-weight:700;font-size:13px;border-radius:12px;padding:10px 16px;margin-bottom:12px;">🎉 限时促销：满 200 减 50！</div>
+            <div style="font-weight:800;font-size:16px;margin-bottom:12px;">🏀 体育用品商城</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div class="p5-good" style="background:#fff;border-radius:14px;padding:12px;"><div style="font-size:32px;">🏸</div><b style="font-size:13px;">碳素羽毛球拍</b><div style="color:#F53F3F;font-weight:800;font-size:14px;margin-top:4px;">¥268</div></div>
+              <div class="p5-good" style="background:#fff;border-radius:14px;padding:12px;"><div style="font-size:32px;">🏀</div><b style="font-size:13px;">专业比赛篮球</b><div style="color:#F53F3F;font-weight:800;font-size:14px;margin-top:4px;">¥199</div></div>
+              <div class="p5-good" style="background:#fff;border-radius:14px;padding:12px;"><div style="font-size:32px;">👟</div><b style="font-size:13px;">缓震跑步鞋</b><div style="color:#F53F3F;font-weight:800;font-size:14px;margin-top:4px;">¥399</div></div>
+              <div class="p5-good" style="background:#fff;border-radius:14px;padding:12px;"><div style="font-size:32px;">🧢</div><b style="font-size:13px;">速干运动帽</b><div style="color:#F53F3F;font-weight:800;font-size:14px;margin-top:4px;">¥59</div></div>
+            </div>
+            <button id="p5-web-btn" style="width:100%;margin-top:14px;padding:12px;border-radius:12px;background:#0A59F7;color:#fff;font-weight:700;font-size:14px;border:none;cursor:pointer;">🛒 结算（网页调用 App）</button>
+            <div style="font-size:11px;color:#96A2BC;text-align:center;margin-top:8px;">这段按钮执行的是：window.shopBridge.checkout()</div>
+          </div>
+        </div>
+        <!-- App 侧控制台 -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="font-size:13px;font-weight:700;color:#5A6B8C;">应用侧控制区（ArkTS 代码触发的动作）</div>
+          <button class="btn soft sm" id="p5-app-btn1" style="justify-content:flex-start;">🎨 runJavaScript("setBgColor('#EAF2FF')")</button>
+          <button class="btn soft sm" id="p5-app-btn2" style="justify-content:flex-start;">🎉 runJavaScript("showSaleBanner()")</button>
+          <button class="btn soft sm" id="p5-app-btn3" style="justify-content:flex-start;">🔍 runJavaScript("document.title")</button>
+          <div style="font-size:13px;font-weight:700;color:#5A6B8C;margin-top:4px;">通信日志（console）</div>
+          <div class="demo-log" id="p5-log"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="next-bar">
+      <div class="nb-text"><b>项目 5 完成 ✔</b><span>网页和 App 已经能互相"打电话"了。下一章把应用的一部分"搬"到手机桌面上。</span></div>
+      <button class="btn" onclick="HL.go('p6')">进入项目 6 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 6：桌面计算器
+     ============================================================ -->
+<section class="page" id="page-p6">
+  <div class="page-hero">
+    <div class="hero-badge">项目 6 · 服务卡片开发</div>
+    <h1>桌面计算器（Form Kit 服务卡片）</h1>
+    <p class="hero-sub">为什么有些 App 的功能能直接"住"在手机桌面上？这一章学 <b>Form Kit</b>：先把计算器 App 做出来，再把它的一部分变成一个能放在桌面的"服务卡片"。右侧手机里的计算器是<b>真的能算</b>的，算完的结果还能同步到桌面卡片上。</p>
+    <div class="hero-chips">
+      <span class="chip">Form Kit 简介</span><span class="chip">创建 ArkTS 卡片</span><span class="chip">卡片配置文件</span><span class="chip">卡片生命周期</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>Form Kit：桌面上的"便利贴"</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          服务卡片就是放在桌面上的小窗口：<b>不用打开 App，瞄一眼就能看到信息</b>（今天的天气、待办、步数），点一下还能直接跳进 App 的对应页面。它不是"缩小版的 App"，而是一个独立的、由 App 提供数据的小界面。
+        </div>
+        <ul class="slist">
+          <li><b>卡片从哪来？</b>App 安装后，用户在桌面长按 → 服务卡片 → 选择要添加的卡片。</li>
+          <li><b>卡片上显示什么？</b>由 App 提供数据（比如计算器卡片显示上次的计算结果）。</li>
+          <li><b>卡片怎么更新？</b>App 通过 <code class="inline">updateForm</code> 主动刷新，或由系统定期刷新。</li>
+        </ul>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · 服务卡片像 Web 里的什么？</div>
+        <p>Web 世界最接近的是 <b>PWA 的桌面小组件 / 浏览器扩展的小面板</b>，但鸿蒙的卡片是<b>系统级一等公民</b>：</p>
+        <table class="wc-tbl">
+          <tr><th>对比</th><th>PWA 小组件（Web）</th><th>鸿蒙服务卡片</th></tr>
+          <tr><td>怎么出现在桌面</td><td class="webcell">用户手动"添加到主屏幕"</td><td>App 声明卡片配置，用户长按 App 图标添加</td></tr>
+          <tr><td>数据从哪来</td><td class="webcell">Service Worker 缓存 / 拉取</td><td>App 通过 <code>updateForm</code> 主动"喂"数据</td></tr>
+          <tr><td>能写什么</td><td class="webcell">HTML/CSS/JS（沙箱受限）</td><td>专门的 .ets 卡片界面（限制更严：无复杂动画、无长列表）</td></tr>
+          <tr><td>点击行为</td><td class="webcell">打开 PWA 页面</td><td>可以"直达"App 的指定页面甚至元服务</td></tr>
+        </table>
+        <p>💡 <b>一句话记住</b>：卡片<b>不是</b>缩小版 App 页面，而是一个"独立的小窗口"——它自己不能算数、不能请求数据，数据全靠 App 主动推给它。所以演示里你在计算器按出结果时，卡片才会"跟着变"。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>创建一个卡片的四步走</div>
+        <div class="home-grid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr));">
+          <div class="analytic"><b>第 1 步 · 新建卡片</b><br>在 DevEco 里右键 → New → Service Widget，选卡片模板和尺寸（2×2、2×4…）。</div>
+          <div class="analytic"><b>第 2 步 · 写卡片 UI</b><br>卡片的界面写在独立的 .ets 文件里，用同一套 ArkUI 组件，但限制较多（保证流畅）。</div>
+          <div class="analytic"><b>第 3 步 · 配置卡片信息</b><br>在 <code class="inline">widget/profile</code> 下的 json 里登记：名称、尺寸、预览图、刷新周期等。</div>
+          <div class="analytic"><b>第 4 步 · 处理生命周期</b><br>实现 FormEditExtensionAbility / EntryFormAbility，响应"创建、刷新、删除"等回调。</div>
+        </div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>卡片 UI 示例（WidgetCard.ets）</div><pre><code>@Entry
+@Component
+struct WidgetCard {
+  @State result: string = '0';     // 卡片上要显示的数据
+
+  build() {
+    Column() {
+      Row() {
+        Text('🧮 计算器').fontSize(12).fontColor('#5A6B8C')
+        Blank()
+      }.width('100%')
+
+      Text(this.result)              // 突出显示"上次计算结果"
+        .fontSize(30).fontWeight(FontWeight.Bold)
+        .width('100%').textAlign(TextAlign.End)
+    }
+    .width('100%').height('100%')
+    .padding(12)
+  }
+}</code></pre></div>
+        <div class="tip tip-info"><span class="tip-ico">💡</span><div><b>卡片的限制要知道</b>：卡片里不能放视频、不能无限滚动、动画有限——它的定位是"轻量信息展示 + 一次点击入口"。真正的计算逻辑仍在 App 主程序里。</div></div>
+      </article>
+
+      <div class="stage">
+        <div class="stage-head">
+          <div class="stage-title"><span class="st-dot"></span>互动演示：桌面上的服务卡片</div>
+          <div class="seg" id="p6-size-seg">
+            <button class="on" data-s="2x2">2×2 小卡</button>
+            <button data-s="2x4">2×4 中卡</button>
+          </div>
+        </div>
+        <div class="desktop-wrap">
+          <div class="dw-clock">
+            <div class="dw-time" id="p6-dw-time">09:41</div>
+            <div class="dw-date">10 月 12 日 · 星期日</div>
+          </div>
+          <div class="dw-apps" id="p6-dw-apps">
+            <div class="dw-app"><span class="da-ico">📷</span>相机</div>
+            <div class="dw-app"><span class="da-ico">💬</span>信息</div>
+            <div class="dw-app"><span class="da-ico">🧭</span>地图</div>
+            <div class="dw-app"><span class="da-ico">🎵</span>音乐</div>
+            <div class="widget-card" id="p6-widget">
+              <div class="wc-title"><span>🧮 计算器 · 服务卡片</span><span id="p6-widget-size">2×2</span></div>
+              <div class="wc-main" id="p6-widget-val" style="text-align:left;">0</div>
+              <div class="wc-sub" id="p6-widget-sub" style="text-align:left;">在右侧手机里算一道题，结果会同步到这里</div>
+            </div>
+            <div class="dw-app"><span class="da-ico">🗓️</span>日历</div>
+            <div class="dw-app"><span class="da-ico">⚙️</span>设置</div>
+          </div>
+        </div>
+        <div class="analytic" style="margin-top:12px;" id="p6-widget-note">
+          <b>联动演示</b>：右侧手机里的计算结果会通过类似 <code class="inline">updateForm()</code> 的机制"推送"到这张卡片上——这就是 App 和服务卡片的数据关系。切换卡片尺寸看看不同尺寸的布局（2×4 会让卡片变宽并显示更多信息）。
+        </div>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>卡片生命周期：卡片也有"一生"</div>
+        <table class="tbl">
+          <tr><th>生命周期回调</th><th>什么时候触发</th><th>要做什么</th></tr>
+          <tr><td><code class="inline">onAddForm</code></td><td>用户把卡片添加到桌面时</td><td>返回初始数据</td></tr>
+          <tr><td><code class="inline">onUpdateForm</code></td><td>卡片需要刷新（定时 / 主动请求）时</td><td>更新卡片显示的数据</td></tr>
+          <tr><td><code class="inline">onRemoveForm</code></td><td>用户从桌面移除卡片时</td><td>清理占用的资源</td></tr>
+          <tr><td><code class="inline">onCastToNormalForm</code></td><td>临时卡片转为常驻卡片时</td><td>转为正式数据源</td></tr>
+        </table>
+        <div class="tip tip-ok"><span class="tip-ico">✅</span><div>口诀：<b>加卡 onAddForm、刷新 onUpdateForm、删卡 onRemoveForm</b>。考试喜欢考这三个名字，别记混。</div></div>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content" style="background:#F2F4F8;">
+              <div class="calc">
+                <div class="calc-screen">
+                  <div class="calc-expr" id="p6-expr">&nbsp;</div>
+                  <div class="calc-out" id="p6-out">0</div>
+                </div>
+                <div class="calc-grid">
+                  <button class="calc-btn fn" data-k="C">AC</button>
+                  <button class="calc-btn fn" data-k="neg">±</button>
+                  <button class="calc-btn fn" data-k="%">%</button>
+                  <button class="calc-btn fn" data-k="÷">÷</button>
+                  <button class="calc-btn" data-k="7">7</button>
+                  <button class="calc-btn" data-k="8">8</button>
+                  <button class="calc-btn" data-k="9">9</button>
+                  <button class="calc-btn fn" data-k="×">×</button>
+                  <button class="calc-btn" data-k="4">4</button>
+                  <button class="calc-btn" data-k="5">5</button>
+                  <button class="calc-btn" data-k="6">6</button>
+                  <button class="calc-btn fn" data-k="−">−</button>
+                  <button class="calc-btn" data-k="1">1</button>
+                  <button class="calc-btn" data-k="2">2</button>
+                  <button class="calc-btn" data-k="3">3</button>
+                  <button class="calc-btn fn" data-k="+">+</button>
+                  <button class="calc-btn zero" data-k="0">0</button>
+                  <button class="calc-btn" data-k=".">.</button>
+                  <button class="calc-btn eq" data-k="=">=</button>
+                </div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>真的可以算数！算几道题（比如 123 × 45），看看左边的桌面卡片是不是悄悄跟着变了。</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 6 完成 ✔</b><span>App 的信息已经能"搬"到桌面了。下一章让 App 学会上网。</span></div>
+    <button class="btn" onclick="HL.go('p7')">进入项目 7 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 7：校园通应用（网络）
+     ============================================================ -->
+<section class="page" id="page-p7">
+  <div class="page-hero">
+    <div class="hero-badge">项目 7 · 网络通信</div>
+    <h1>校园通应用（Network Kit 网络服务）</h1>
+    <p class="hero-sub">为什么打开 App 能看到"最新通知"？因为它在你看之前偷偷去"服务器"拿了一份数据。这一章学：<b>怎么发请求、怎么处理数据、断网了怎么办</b>，还会带你搭一个自己的本地服务器。</p>
+    <div class="hero-chips">
+      <span class="chip">Network Kit 简介</span><span class="chip">网络状态变化</span><span class="chip">HTTP 请求</span><span class="chip">RCP 请求</span><span class="chip">Node 本地服务器</span>
+    </div>
+  </div>
+
+  <div class="lesson-main">
+
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">①</span>网络三件事：连没连、要数据、断网了怎么办</div>
+      <div class="plain-talk">
+        <div class="pt-label">💬 说人话</div>
+        网络编程只有三个日常问题：<br>
+        ① <b>现在有网吗？</b>（网络状态监听）—— 有 Wi-Fi、用的是流量、还是飞行模式？<br>
+        ② <b>帮我向服务器要数据。</b>（HTTP / RCP 请求）—— 用标准格式"点外卖"，服务器把数据包好送回来；<br>
+        ③ <b>网断了 App 别崩。</b>（错误处理）—— 要给用户优雅的提示，而不是白屏。
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">②</span>HTTP 与 RCP：两种"点外卖"的方式</div>
+      <table class="tbl">
+        <tr><th>对比</th><th>HTTP（@ohos.net.http）</th><th>RCP（Remote Communication Kit）</th></tr>
+        <tr><td>定位</td><td>经典网络请求模块，简单直接</td><td>新一代远场通信平台，能力更全面</td></tr>
+        <tr><td>上手难度</td><td>容易</td><td>稍复杂，但功能强</td></tr>
+        <tr><td>特点能力</td><td>支持 GET/POST 等基本方法</td><td>多请求优先级、安全的会话管理、多表单等高级特性</td></tr>
+        <tr><td>怎么选</td><td>简单场景、初学练手</td><td>复杂业务、需要精细控制网络时</td></tr>
+      </table>
+      <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>HTTP 请求三段式（发送 → 等待 → 处理）</div><pre><code>import { http } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let httpRequest = http.createHttp();          // ① 创建请求对象
+
+httpRequest.request(
+  'http://localhost:3000/api/news',           // 请求地址
+  {
+    method: http.RequestMethod.GET,           // 请求方法
+    header: { 'Content-Type': 'application/json' }
+  },
+  (err: BusinessError, data: http.HttpResponse) =&gt; {
+    if (!err) {
+      // ② 成功：data.result 是服务器返回的"数据包"（记得解析 JSON）
+      let list = JSON.parse(data.result as string);
+      console.info('拿到 ' + list.length + ' 条数据');
+    } else {
+      // ③ 失败：断网 / 服务器没开 / 超时，都要处理！
+      console.error('请求失败: ' + JSON.stringify(err));
+    }
+  }
+);</code></pre></div>
+      <div class="tip tip-warn"><span class="tip-ico">⚠️</span><div><b>权限别忘加</b>：使用网络功能前，在 <code class="inline">module.json5</code> 里声明 <code class="inline">"ohos.permission.INTERNET"</code>，否则请求会直接失败——这是新手最常见的翻车点。</div></div>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · fetch / axios ↔ http.request</div>
+        <p>发请求的思路一模一样（拿数据 → 解析 JSON → 渲染），对照看看：</p>
+        <div class="code-cmp2">
+          <div class="cc-col">
+            <div class="cc-tag web">▸ Web：fetch（有浏览器帮你兜底）</div>
+            <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>script.js</div><pre><code>const res = await fetch('/api/news');
+const list = await res.json();
+console.log('拿到', list.length, '条');</code></pre></div>
+          </div>
+          <div class="cc-col">
+            <div class="cc-tag ohm">▸ 鸿蒙：http（要自己兜底）</div>
+            <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>news.ets</div><pre><code>let req = http.createHttp();
+req.request('http://…/api/news', (err, data) =&gt; {
+  if (err) { /* 断网/超时，必须自己处理 */ }
+  const list = JSON.parse(data.result as string);
+  console.info('拿到 ' + list.length + ' 条');
+});</code></pre></div>
+          </div>
+        </div>
+        <table class="wc-tbl">
+          <tr><th>环节</th><th>Web（fetch）</th><th>鸿蒙（http / RCP）</th></tr>
+          <tr><td>发起请求</td><td class="webcell">直接 <code>fetch(url)</code></td><td>先 <code>createHttp()</code> 创建请求对象，再 <code>request()</code></td></tr>
+          <tr><td>解析数据</td><td class="webcell"><code>await res.json()</code></td><td><code>JSON.parse(data.result)</code>（一样是 JSON）</td></tr>
+          <tr><td>跨域问题</td><td class="webcell">CORS 是老大难</td><td>没有浏览器沙箱 → <b>无 CORS 概念</b>（但更要注意接口安全）</td></tr>
+          <tr><td>权限</td><td class="webcell">浏览器统一管</td><td><b>必须自己声明 INTERNET 权限</b>，不然请求直接失败</td></tr>
+          <tr><td>断网处理</td><td class="webcell">catch 一下就行</td><td>处理 err 回调 + 监听网络状态（可以在下方演示里切"断网"体验）</td></tr>
+        </table>
+        <p>💡 一句话总结：<b>思路完全一样，区别是"没有浏览器替你兜底了"</b>——权限要自己声明、网络要自己监听、失败要自己处理。这正是"应用开发者"和"网页开发者"的职责差别。</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">③</span>搭一个自己的小服务器（Node）</div>
+      <div class="card-sub">开发阶段不用真的买服务器：用 Node.js 在电脑上跑一个，"假装"我们是后台。</div>
+      <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>server.js · 20 行搞定一个接口</div><pre><code>const express = require('express');
+const app = express();
+
+// 定义一个接口：GET /api/news → 返回 JSON 数组
+app.get('/api/news', (req, res) =&gt; {
+  res.json([
+    { id: 1, title: '图书馆本周末延长开放至 22:00', time: '10-12 08:30' },
+    { id: 2, title: '校园歌手大赛报名开始啦', time: '10-11 16:20' }
+  ]);
+});
+
+app.listen(3000, () =&gt; {
+  console.log('服务器已启动: http://localhost:3000');
+});</code></pre></div>
+      <div class="tip tip-info"><span class="tip-ico">💡</span><div>跑起来只要三步：装 Node.js → 项目目录里 <code class="inline">npm install express</code> → <code class="inline">node server.js</code>。然后用浏览器访问 <code class="inline">http://localhost:3000/api/news</code> 就能看到 JSON 数据。真机调试时手机和电脑要连同一个 Wi-Fi，把 localhost 换成电脑的局域网 IP。</div></div>
+    </article>
+
+    <div class="stage">
+      <div class="stage-head">
+        <div class="stage-title"><span class="st-dot"></span>互动演示：一次完整的网络请求</div>
+        <div class="seg" id="p7-net-seg">
+          <button class="on" data-net="wifi">📶 Wi-Fi 已连接</button>
+          <button data-net="off">✈️ 断开网络</button>
+        </div>
+      </div>
+      <div class="netflow-board">
+        <div class="net-node" id="p7-node-app"><span class="nn-ico">📱</span><b>校园通 App</b><span style="font-size:11px;color:#8C97AB;">发起请求</span></div>
+        <div class="net-wire"><div class="packet" id="p7-packet1">GET</div></div>
+        <div class="net-node" id="p7-node-server"><span class="nn-ico">🖥️</span><b>Node 服务器</b><span style="font-size:11px;color:#8C97AB;">localhost:3000</span></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;">
+        <button class="btn" id="p7-send">🚀 发送 HTTP 请求</button>
+        <span class="net-badge wifi" id="p7-net-badge">📶 Wi-Fi 已连接</span>
+        <span style="font-size:12px;color:#8C97AB;font-family:var(--mono);">GET http://localhost:3000/api/news</span>
+      </div>
+      <div class="p7-cols" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;">
+        <div>
+          <div style="font-size:12.5px;font-weight:700;color:#5A6B8C;margin-bottom:8px;">📨 服务器返回的数据（JSON）</div>
+          <div class="json-view" id="p7-json">// 点击"发送 HTTP 请求"查看服务器返回…</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:700;color:#5A6B8C;margin-bottom:8px;">📱 解析后渲染到界面（约 0.3 秒后出现）</div>
+          <div id="p7-render" style="background:#F6F8FC;border-radius:14px;padding:12px;min-height:158px;border:1px solid var(--border);">
+            <div style="color:#B0BACA;font-size:12.5px;text-align:center;padding-top:56px;">等待请求…</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-log" id="p7-log" style="margin-top:14px;height:120px;"></div>
+    </div>
+
+    <div class="next-bar">
+      <div class="nb-text"><b>项目 7 完成 ✔</b><span>App 已经会"上网"了。下一章处理更"重"的媒体：视频播放。</span></div>
+      <button class="btn" onclick="HL.go('p8')">进入项目 8 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 8：视频播放器
+     ============================================================ -->
+<section class="page" id="page-p8">
+  <div class="page-hero">
+    <div class="hero-badge">项目 8 · 音视频开发</div>
+    <h1>视频播放器应用（Media Kit）</h1>
+    <p class="hero-sub">视频播放是 App 里技术含量较高的功能：要管<b>播放器状态</b>（播放/暂停/缓冲）、要选<b>渲染方式</b>（画面往哪画）、还要处理<b>手势</b>（滑动快进）。这一章把这些全拆开讲清楚。</p>
+    <div class="hero-chips">
+      <span class="chip">Media Kit 简介</span><span class="chip">获取本地视频资源</span><span class="chip">AVPlayer 状态机</span><span class="chip">XComponent 渲染</span><span class="chip">播放控制</span><span class="chip">PanGesture 手势</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>Media Kit：播放视频的两条路线</div>
+        <table class="tbl">
+          <tr><th>方案</th><th>是什么</th><th>适合</th></tr>
+          <tr><td><b>AVPlayer</b></td><td>功能完整的播放器 API：解码、渲染、状态管理全都有</td><td>自研播放器、需要深度控制</td></tr>
+          <tr><td><b>Video 组件</b></td><td>ArkUI 提供的现成组件，填个地址就能播</td><td>快速嵌入一个视频</td></tr>
+        </table>
+        <p style="color:var(--text-2)">本项目用的是 <b>AVPlayer</b>（更灵活，教材也以此为主）。它播放的全流程是：</p>
+        <div class="analytic"><b>创建</b> AVPlayer → <b>设置资源</b>（url / fdSrc）→ <b>设置画面</b>（surfaceId）→ <b>prepare()</b> → <b>play()</b> 播放 → 暂停 / 跳转 / 停止 → <b>release()</b> 收尾释放资源。</div>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · &lt;video&gt; 标签去哪了？</div>
+        <p>这是最"反直觉"的一章：鸿蒙 App <b>不是网页环境</b>，没有 &lt;video&gt; 标签可用。所以播放视频要"自己组装播放器"，但零件都能和你熟悉的 video 属性对上：</p>
+        <table class="wc-tbl">
+          <tr><th>你在 Web 里的习惯</th><th>鸿蒙里的对应</th></tr>
+          <tr><td class="webcell"><code>&lt;video src="a.mp4" controls&gt;</code></td><td>XComponent（提供画面"画布"）+ AVPlayer（负责解码和播放）</td></tr>
+          <tr><td class="webcell"><code>video.play()</code> / <code>video.pause()</code></td><td><code>avPlayer.play()</code> / <code>avPlayer.pause()</code>（一模一样）</td></tr>
+          <tr><td class="webcell"><code>video.currentTime = 30</code></td><td><code>avPlayer.seek(30 * 1000)</code>（⚠️ 单位是毫秒，要乘 1000）</td></tr>
+          <tr><td class="webcell"><code>video.ontimeupdate</code></td><td><code>avPlayer.on('timeUpdate', …)</code>（事件名字都长得像）</td></tr>
+          <tr><td class="webcell"><code>video.duration</code></td><td><code>avPlayer.duration</code>（从 durationUpdate 事件里拿）</td></tr>
+          <tr><td class="webcell">浏览器自动管理加载/播放/结束</td><td>要自己管"<b>状态机</b>"（<code>idle → prepared → playing…</code>），这是本章核心考点，右侧可以点着玩</td></tr>
+        </table>
+        <p>💡 <b>为什么要"自找麻烦"？</b>因为全权接管后才有<b>完全控制权</b>——自定义播放器 UI、手势快进、倍速、画中画都以此为基础。当然鸿蒙也留了懒人方案：<code class="inline">Video()</code> 组件，用法很接近 &lt;video&gt; 标签，简单场景可以直接用。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>视频资源从哪来 & XComponent 是什么</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          <b>资源</b>：视频文件可以打包进 App（rawfile，适合小视频），也可以放沙箱目录（下载来的视频），还可以直接播网络地址。<br>
+          <b>画面</b>：视频的"画面"不能直接画在普通组件上，需要一个专门的"画布"——<b>XComponent</b>。AVPlayer 把解码后的画面交给 XComponent 显示的 <b>surfaceId</b>，你在组件上看到的动态画面其实是播放器在"后面"画的。
+        </div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>XComponent 提供"画布"</div><pre><code>XComponent({
+  id: 'videoPlayer',
+  type: XComponentType.SURFACE,          // 关键：类型选 SURFACE
+  controller: this.xComponentController
+})
+  .onLoad(() =&gt; {
+    // 组件加载完成 → 拿到 surfaceId → 交给 AVPlayer 显示画面
+    this.surfaceId = this.xComponentController.getXComponentSurfaceId();
+    // 然后才开始创建播放器、设置 surfaceId
+  })</code></pre></div>
+        <div class="tip tip-warn"><span class="tip-ico">⚠️</span><div><b>顺序不能乱</b>：必须先拿到 surfaceId，再给播放器设置——顺序反了会出现"有声音没画面"的经典 bug。</div></div>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="card" style="margin-bottom:14px;">
+        <div class="card-title" style="font-size:15px;"><span class="ct-icon">③</span>AVPlayer 状态机（点按钮玩）</div>
+        <div class="card-sub" style="margin-bottom:10px;">播放器在任何时刻都处于一个确定状态；操作是否合法取决于当前状态。</div>
+        <div class="fsm-board">
+          <div class="fsm-row"><span class="fsm-state" data-s="idle">idle</span><span class="fsm-arrow">→</span><span class="fsm-state" data-s="initialized">initialized</span><span class="fsm-arrow">→</span><span class="fsm-state" data-s="prepared">prepared</span></div>
+          <div class="fsm-row"><span class="fsm-state" data-s="playing">playing</span><span class="fsm-arrow">⇄</span><span class="fsm-state" data-s="paused">paused</span><span class="fsm-arrow">→</span><span class="fsm-state" data-s="completed">completed</span></div>
+          <div class="fsm-row"><span class="fsm-state" data-s="stopped">stopped</span><span class="fsm-arrow">→</span><span class="fsm-state" data-s="released">released</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;margin-top:14px;">
+          <button class="btn sm soft" data-act="create" style="justify-content:flex-start;">① createAVPlayer() 创建实例</button>
+          <button class="btn sm soft" data-act="url" style="justify-content:flex-start;">② avPlayer.url = 'demo.mp4' 设置资源</button>
+          <button class="btn sm soft" data-act="prepare" style="justify-content:flex-start;">③ prepare() 准备播放</button>
+          <button class="btn sm soft" data-act="play" style="justify-content:flex-start;">④ play() 播放</button>
+          <button class="btn sm soft" data-act="pause" style="justify-content:flex-start;">⑤ pause() 暂停</button>
+          <button class="btn sm soft" data-act="stop" style="justify-content:flex-start;">⑥ stop() 停止</button>
+          <button class="btn sm soft" data-act="reset" style="justify-content:flex-start;">⑦ reset() 重置</button>
+          <button class="btn sm soft" data-act="release" style="justify-content:flex-start;">⑧ release() 销毁</button>
+        </div>
+        <div class="demo-log" id="p8-fsm-log" style="margin-top:12px;height:104px;"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-title"><span class="st-dot"></span>互动演示：视频播放器（画面为模拟渲染）</div>
+      <span style="font-size:12px;color:#8C97AB;">🎮 拖动进度条跳转 ｜ 在画面上<b>左右滑动</b>快进快退 ｜ 点中央按钮播放暂停</span>
+    </div>
+    <div class="vplayer" id="p8-player">
+      <div class="vp-scene">
+        <div class="vp-sun"></div>
+        <div class="vp-cloud" style="width:92px;top:16%;animation-duration:26s;"></div>
+        <div class="vp-cloud" style="width:58px;top:30%;animation-duration:36s;animation-delay:-9s;"></div>
+        <div class="vp-cloud" style="width:74px;top:9%;animation-duration:31s;animation-delay:-20s;"></div>
+        <div class="vp-mountain"></div>
+        <div class="vp-water"></div>
+      </div>
+      <div class="vp-badge">🎬 demo_sunset.mp4 · AVPlayer 解码 → XComponent 渲染</div>
+      <div class="vp-gesture-hint" id="p8-gesture-hint"></div>
+      <div class="vp-center"><div class="vp-playbtn" id="p8-playbtn">▶</div></div>
+      <div class="vp-controls">
+        <div class="vp-bar" id="p8-bar">
+          <div class="vp-tip" id="p8-tip">00:00</div>
+          <div class="vp-track"><div class="vp-fill" id="p8-fill"></div></div>
+        </div>
+        <div class="vp-meta">
+          <span class="vpm-btn" id="p8-back10" title="后退10秒">⏮</span>
+          <span class="vpm-btn" id="p8-play2" title="播放/暂停">▶</span>
+          <span class="vpm-btn" id="p8-fwd10" title="前进10秒">⏭</span>
+          <span class="vp-time"><span id="p8-cur">00:00</span> / <span id="p8-dur">01:00</span></span>
+          <span class="vpm-right">
+            <span class="vp-time" id="p8-speed" style="cursor:pointer;" title="点击切换倍速">1.0x</span>
+            <span class="vpm-btn" id="p8-full" title="全屏（模拟）">⛶</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="analytic" style="margin-top:12px;">
+      <b>手势说明（PanGesture）</b>：真实 App 里用 <code class="inline">PanGesture</code> 监听滑动方向 —— 水平滑动调整进度（快进/后退），垂直滑动调整音量或亮度。演示里试试在画面上左右拖动，注意顶部的提示浮层。
+    </div>
+  </div>
+
+  <div class="lesson-main" style="margin-top:20px;">
+    <article class="card">
+      <div class="card-title"><span class="ct-icon">④</span>PanGesture：把手势变成功能</div>
+      <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>滑动快进的核心代码</div><pre><code>.gesture(
+  PanGesture({ direction: PanDirection.Horizontal })   // 只关心水平滑动
+    .onActionStart(() =&gt; {
+      this.startTime = this.currentTime;     // 记住开始滑动时的进度
+    })
+    .onActionUpdate((event: GestureEvent) =&gt; {
+      // offsetX 是相对起点的滑动距离，按屏幕宽度折算成秒数
+      const delta = event.offsetX / this.screenWidth * 60;   // 全屏滑完 = 60 秒
+      this.targetTime = this.startTime + delta;
+      this.showHint = '快进到 ' + format(this.targetTime);   // 显示提示浮层
+    })
+    .onActionEnd(() =&gt; {
+      this.avPlayer.seek(this.targetTime * 1000);            // 松手才真正跳转
+      this.showHint = '';
+    })
+)</code></pre></div>
+      <div class="tip tip-info"><span class="tip-ico">💡</span><div>核心思路：<b>滑动时只更新"提示"，松手时才真正 seek</b>。这样既跟手、又不会疯狂触发跳转。</div></div>
+    </article>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 8 完成 ✔</b><span>App 已经能听能看了。下一章认识一种全新的应用形态：元服务。</span></div>
+    <button class="btn" onclick="HL.go('p9')">进入项目 9 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 9：第一个元服务
+     ============================================================ -->
+<section class="page" id="page-p9">
+  <div class="page-hero">
+    <div class="hero-badge">项目 9 · 新形态应用</div>
+    <h1>第一个元服务（原子化服务）</h1>
+    <p class="hero-sub">有一种"App"，<b>不用下载安装</b>，点一下卡片就直接用——这就是元服务。它是鸿蒙区别于其他系统的重要特色。这一章搞清楚：它是什么、怎么组织代码、怎么跑起来。</p>
+    <div class="hero-chips">
+      <span class="chip">什么是元服务</span><span class="chip">核心思想</span><span class="chip">程序基本结构</span><span class="chip">生命周期</span><span class="chip">元服务卡片</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>元服务 vs 传统应用：到底差在哪？</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          传统 App 像"搬进家里的大件家具":要下载（搬家）、要安装（组装）、占地方（存储）。<br>
+          元服务像"便利店"：<b>不用安装</b>，到店就用，用完就走；需要时以<b>卡片</b>的形式出现在桌面、负一屏、甚至扫码/搜索的结果里。
+        </div>
+        <div class="compare-split">
+          <div class="compare-col c-app">
+            <h5>📦 传统应用（App）</h5>
+            <ul>
+              <li>需要下载安装包、占用存储空间</li>
+              <li>需要注册/登录（通常）</li>
+              <li>桌面图标进入，层级深</li>
+              <li>适合功能复杂、高频使用的场景</li>
+              <li>以"安装量"为目标</li>
+            </ul>
+          </div>
+          <div class="compare-col c-atom">
+            <h5>✨ 元服务（Atomic Service）</h5>
+            <ul>
+              <li>免安装，即点即用，用完即走</li>
+              <li>账号可"一键登录"，降低门槛</li>
+              <li>卡片直达：桌面卡片 / 扫码 / 搜索 / 小艺建议</li>
+              <li>适合轻量、低频、即时的场景（充电、点餐、查快递）</li>
+              <li>以"服务直达率"为目标</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tip tip-info"><span class="tip-ico">💡</span><div>同一个 App 不能"又是应用又是元服务"——它们是两种独立形态，但可以共享一套代码库和卡片资源。考试常考这个区别。</div></div>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · 元服务让你想到什么？</div>
+        <p>前端界最接近元服务理念的是 <b>PWA / 小程序</b>——"免安装、即用即走"。对照一下区别：</p>
+        <table class="wc-tbl">
+          <tr><th>对比</th><th>PWA（Web 侧）</th><th>鸿蒙元服务</th></tr>
+          <tr><td>怎么"安装"</td><td class="webcell">浏览器菜单 → "添加到主屏幕"</td><td>系统级入口：扫码 / 搜索 / 卡片直达，<b>没有安装动作</b></td></tr>
+          <tr><td>技术栈</td><td class="webcell">HTML/CSS/JS + Service Worker</td><td>ArkTS / ArkUI（原生性能，不是网页）</td></tr>
+          <tr><td>入口在哪</td><td class="webcell">主屏图标、浏览器书签</td><td>桌面卡片、负一屏、小艺建议、扫码、分享卡片……</td></tr>
+          <tr><td>能用系统能力吗</td><td class="webcell">受浏览器沙箱限制较多</td><td>可用原生能力（账号、支付、位置……）</td></tr>
+        </table>
+        <p>💡 一句话：元服务 = "<b>小程序的产品思路 + 原生应用的性能</b>"。你如果做过小程序或 PWA，很多运营思路（降低门槛、用完即走）是直接通用的。</p>
+      </div>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>程序结构：元服务工程和普通工程像吗？</div>
+        <div class="card-sub">非常像！创建元服务工程时，DevEco Studio 会让你选模板，生成的结构和 Stage 模型工程基本一致，多了卡片（卡片的 EntryFormAbility 等）相关文件。</div>
+        <table class="tbl">
+          <tr><th>结构</th><th>作用</th></tr>
+          <tr><td><code class="inline">entryability/</code></td><td>元服务的入口 Ability（比应用更轻）</td></tr>
+          <tr><td><code class="inline">pages/</code></td><td>页面：元服务也有完整页面，但设计上更"单一入口、直达服务"</td></tr>
+          <tr><td><code class="inline">widget/</code> 或卡片目录</td><td>卡片 UI + 卡片配置 + EntryFormAbility（卡片生命周期入口）</td></tr>
+          <tr><td><code class="inline">app.json5 / module.json5</code></td><td>配置里会声明"这是元服务"（比如 <code class="inline">bundleType</code> 相关配置）以及卡片信息</td></tr>
+        </table>
+        <div class="tip tip-warn"><span class="tip-ico">⚠️</span><div><b>别忘了图标</b>：元服务发布需要专门的元服务图标（教材里的"生成元服务图标"一步），在 AppGallery Connect 上创建元服务时会用到。</div></div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>生命周期：从"卡片被添加"到"被使用"</div>
+        <ul class="slist">
+          <li><b>卡片视角</b>：onAddForm（被添加到桌面）→ onUpdateForm（数据刷新）→ onRemoveForm（被移除）。</li>
+          <li><b>页面视角</b>：和普通应用一样走 UIAbility 生命周期（onCreate → 前台 → 后台 → 销毁），只是启动入口可能来自"点卡片"而非桌面图标。</li>
+          <li><b>免登录/分享入口</b>：元服务经常从分享卡片、扫码等"冷启动"进入——所以首屏要尽快出内容（不能等用户登录才显示）。</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content" style="position:relative;overflow:hidden;">
+              <!-- 桌面 -->
+              <div class="route-page" id="p9-desktop" style="position:absolute;background:linear-gradient(155deg,#1D3FB4,#3D6BE8 55%,#7A4DE8);">
+                <div style="padding:26px 22px;color:#fff;">
+                  <div style="font-size:38px;font-weight:200;">09:41</div>
+                  <div style="font-size:12px;opacity:.8;margin-top:2px;">10 月 12 日 · 星期日</div>
+                </div>
+                <div style="padding:0 18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+                  <div style="grid-column:span 2;background:rgba(255,255,255,.95);border-radius:18px;padding:14px 16px;cursor:pointer;box-shadow:0 10px 24px rgba(10,20,60,.3);" id="p9-card-tap">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <span style="font-size:12px;font-weight:700;color:#5A6B8C;">⚡ 充电元服务 · 卡片</span>
+                      <span style="font-size:10px;color:#96A2BC;">点击直达 →</span>
+                    </div>
+                    <div style="display:flex;align-items:baseline;gap:8px;margin-top:8px;">
+                      <span style="font-size:30px;font-weight:800;color:#16233A;">42%</span>
+                      <span style="font-size:12px;color:#8C97AB;">电量 · 未在充电</span>
+                    </div>
+                  </div>
+                  <div style="height:74px;border-radius:18px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:26px;">📷</div>
+                  <div style="height:74px;border-radius:18px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:26px;">💬</div>
+                </div>
+                <div style="position:absolute;bottom:14px;left:0;right:0;text-align:center;color:rgba(255,255,255,.75);font-size:11px;">👆 点一下上面的元服务卡片</div>
+              </div>
+              <!-- 元服务页面（半屏浮层） -->
+              <div id="p9-service" style="position:absolute;left:0;right:0;bottom:0;top:46%;background:#fff;border-radius:26px 26px 0 0;box-shadow:0 -12px 40px rgba(10,20,60,.25);transform:translateY(105%);transition:transform .38s cubic-bezier(.3,.9,.3,1);z-index:6;">
+                <div style="width:44px;height:5px;border-radius:5px;background:#E2E8F3;margin:9px auto 0;"></div>
+                <div style="padding:14px 22px;">
+                  <div style="display:flex;align-items:center;gap:9px;">
+                    <span style="font-size:20px;">⚡</span>
+                    <b style="font-size:15.5px;">智能充电（元服务）</b>
+                    <span style="margin-left:auto;font-size:11px;color:#96A2BC;background:#F1F4FA;border-radius:999px;padding:2px 10px;">免安装 · 即用即走</span>
+                  </div>
+                  <div style="display:flex;align-items:baseline;gap:10px;margin-top:18px;">
+                    <span style="font-size:44px;font-weight:800;color:#16233A;font-family:var(--mono);">42<span style="font-size:20px;">%</span></span>
+                    <span style="font-size:12.5px;color:#8C97AB;">当前电量</span>
+                  </div>
+                  <button class="m-btn" id="p9-start" style="margin-top:20px;">开始充电</button>
+                  <button class="m-btn ghost" id="p9-close" style="margin-top:10px;">关闭（用完即走）</button>
+                  <div style="font-size:11px;color:#B0BACA;margin-top:12px;text-align:center;">这个页面没有"安装"过程——从卡片直接打开</div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>点桌面上的卡片 → 直接从"卡片"进入"服务"（没有应用商店、没有安装进度条）；用完点"关闭"，回到桌面。</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="stage">
+    <div class="stage-head">
+      <div class="stage-title"><span class="st-dot"></span>互动演示：元服务卡片的四种尺寸</div>
+    </div>
+    <div class="card-sizes">
+      <div class="card-size-item">
+        <div class="ms-widget" style="min-height:74px;">
+          <div class="mw-top"><span class="mw-ico">⚡</span>充电</div>
+          <div style="display:flex;align-items:baseline;gap:6px;"><span class="mw-main" style="font-size:19px;">42%</span><span class="mw-sub">未充电</span></div>
+        </div>
+        <div class="cs-label">1×2 微型卡 · 只够显示一个关键信息</div>
+      </div>
+      <div class="card-size-item">
+        <div class="ms-widget" style="min-height:110px;">
+          <div class="mw-top"><span class="mw-ico">⚡</span>智能充电</div>
+          <div><div class="mw-main">42%</div><div class="mw-sub">剩余 3 小时 12 分<br>点击开始充电</div></div>
+        </div>
+        <div class="cs-label">2×2 方形卡 · 信息 + 轻操作</div>
+      </div>
+      <div class="card-size-item">
+        <div class="ms-widget row-style" style="min-height:110px;">
+          <div style="font-size:34px;">⚡</div>
+          <div><div class="mw-main">42%</div><div class="mw-sub">智能充电 · 预计 21:30 充满</div></div>
+        </div>
+        <div class="cs-label">2×4 横向卡 · 更宽的信息展示</div>
+      </div>
+      <div class="card-size-item">
+        <div class="ms-widget" style="min-height:150px;">
+          <div class="mw-top"><span class="mw-ico">⚡</span>智能充电</div>
+          <div class="mw-main" style="font-size:28px;">42%</div>
+          <div class="mw-sub" style="line-height:1.9;">今日充电：1.2 kWh<br>充电模式：标准（3.6 kW）<br>预计充满：21:30</div>
+        </div>
+        <div class="cs-label">4×4 大卡 · 接近完整功能面板</div>
+      </div>
+    </div>
+    <div class="analytic" style="margin-top:14px;"><b>设计要点</b>：卡片不是"越挤越好"——每个尺寸要设计独立的布局（同样叫"2×2"，不是把大卡缩小），保证信息在对应尺寸下依然清晰。开发时每个尺寸对应一套卡片配置。</div>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>项目 9 完成 ✔</b><span>你已经认识鸿蒙的三种形态：应用、元服务、卡片。最后一个项目，全部串起来实战。</span></div>
+    <button class="btn" onclick="HL.go('p10')">进入项目 10 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     项目 10：智能充电（综合实训）
+     ============================================================ -->
+<section class="page" id="page-p10">
+  <div class="page-hero">
+    <div class="hero-badge">项目 10 · 综合实训</div>
+    <h1>智能充电家用应用（综合实训）</h1>
+    <p class="hero-sub">前 9 个项目学到的所有技能，在这里拧成一股绳：<b>UI 设计 → 工程结构 → 状态变量 → 业务逻辑 → 交互反馈</b>。这个项目不再引入新组件，而是教你怎么"组织"一个完整应用。</p>
+    <div class="hero-chips">
+      <span class="chip">UI 设计</span><span class="chip">工程结构</span><span class="chip">状态变量</span><span class="chip">业务逻辑处理</span><span class="chip">UI 交互</span>
+    </div>
+  </div>
+
+  <div class="lesson-layout">
+    <div class="lesson-main">
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">①</span>需求分析：先想清楚"要什么"</div>
+        <div class="plain-talk">
+          <div class="pt-label">💬 说人话</div>
+          智能充电 App 要解决什么事？用户想知道：<b>现在电量多少、充得快不快、什么时候充满</b>，并且能<b>控制充电</b>（开始/停止、选择模式）。把这四件事翻译成功能清单，就是开发的第一步。
+        </div>
+        <table class="tbl">
+          <tr><th>用户想知道 / 想做</th><th>翻译成功能</th></tr>
+          <tr><td>现在电量多少？</td><td>电量环形进度显示（实时更新）</td></tr>
+          <tr><td>充得快不快？</td><td>充电功率、已充时长、预计完成时间</td></tr>
+          <tr><td>想控制一下</td><td>开始/停止按钮 + 模式切换（快充/标准/定时）</td></tr>
+          <tr><td>状态正常吗？</td><td>充电状态提示（充电中/已完成/异常提醒）</td></tr>
+        </table>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">②</span>UI 设计：先画清楚"长什么样"</div>
+        <ul class="slist">
+          <li><b>顶部区</b>：标题 + 设备状态（在线/离线）。</li>
+          <li><b>核心区</b>：电量环（大而醒目）——用户第一眼要看到的东西。</li>
+          <li><b>信息区</b>：功率、时长、预计完成三张统计卡。</li>
+          <li><b>控制区</b>：模式切换（分段控件）+ 主操作按钮（开始/停止充电）。</li>
+        </ul>
+        <div class="tip tip-info"><span class="tip-ico">💡</span><div><b>设计原则</b>：主次分明（电量是主角）、操作清晰（一键开始/停止）、及时反馈（任何操作都有视觉回应）。右侧手机里的成品就是这个布局。</div></div>
+      </article>
+
+      <article class="card">
+        <div class="card-title"><span class="ct-icon">③</span>工程结构与状态变量：代码怎么组织</div>
+        <div class="codeblock"><div class="cb-head"><div class="cb-dots"><i></i><i></i><i></i></div>状态变量设计（组件的"记忆"）</div><pre><code>@Entry
+@Component
+struct ChargingPage {
+  @State batteryLevel: number = 42;        // 电量（0~100）
+  @State isCharging: boolean = false;      // 是否正在充电
+  @State chargeMode: string = '标准';      // 模式：快充/标准/定时
+  @State power: number = 0;                // 当前功率 kW
+  @State elapsed: number = 0;              // 已充时长（秒）
+  @State statusText: string = '未充电';    // 状态文案
+
+  // 定时器：充电时每秒更新一次
+  private timerId: number = -1;
+
+  startCharging() {
+    this.isCharging = true;
+    this.statusText = '充电中';
+    this.timerId = setInterval(() =&gt; {
+      this.batteryLevel = Math.min(100, this.batteryLevel + 1);   // 电量 +1
+      this.elapsed += 1;
+      this.power = this.chargeMode === '快充' ? 7.2 : 3.6;         // 功率跟着模式变
+      if (this.batteryLevel &gt;= 100) {
+        this.stopCharging();
+        this.statusText = '充电完成';
+      }
+    }, 1000);
+  }
+
+  stopCharging() {
+    this.isCharging = false;
+    this.power = 0;
+    if (this.timerId !== -1) { clearInterval(this.timerId); this.timerId = -1; }
+  }
+}</code></pre></div>
+        <div class="tips-row" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;">
+          <div class="analytic"><b>状态变量四原则</b><br>① 能被 UI 用到的数据才用 @State；<br>② 数据变化 → 界面自动刷新，不要手动改 UI；<br>③ 定时器、控制器这类"工具对象"用普通变量存；<br>④ 组件销毁时记得清理定时器（onDestroy 里 clearInterval）。</div>
+          <div class="analytic"><b>业务逻辑分离</b><br>电量计算、功率换算这类逻辑，建议抽成单独的函数/工具类（比如 ChargingCalculator），组件里只管"调用 + 更新状态"。逻辑和界面分开，代码才好维护——这就是"工程结构"的意义。</div>
+        </div>
+      </article>
+
+      <div class="web-cmp">
+        <div class="wc-label">⇄ 前端对照 · "迁移完成"自检清单</div>
+        <p>做完这个综合项目，对着下面清单自查——能全部打勾，说明你已经完成从 Web 到鸿蒙的思维迁移：</p>
+        <ul class="slist">
+          <li>我不再寻找 DOM 节点，而是声明 <b>@State 变量</b>来跟踪状态</li>
+          <li>我不再写 CSS 文件 / 类名，而是用<b>链式属性</b>描述样式</li>
+          <li>我不再拼 HTML 字符串，而是用 <b>ForEach / 组件嵌套</b>渲染列表</li>
+          <li>我不再手动"更新界面"，只改数据（框架自动刷新）</li>
+          <li>我的尺寸单位是 <b>vp / fp</b>，不再是 px</li>
+          <li>我知道：存数据要 <b>flush</b>、请求要 <b>权限</b>、跳转要 <b>登记路由</b></li>
+        </ul>
+        <p>💡 还差几条没打勾？翻回「前端转鸿蒙对照」页复习对应的章节，或者去「关键词词典」搜出那个词。</p>
+      </div>
+
+    </div>
+
+    <aside class="lesson-side">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-statusbar"><span>09:41</span><span class="ps-right">📶 🔋</span></div>
+            <div class="phone-content" style="background:#F4F6FB;">
+              <div class="m-page" style="padding:14px 18px 20px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <div style="font-size:17px;font-weight:800;">⚡ 智能充电</div>
+                  <span id="p10-online" style="font-size:11px;color:#0A6420;background:#E8F9EC;border-radius:999px;padding:3px 10px;font-weight:700;">设备在线</span>
+                </div>
+
+                <div class="battery-ring" style="margin-top:18px;">
+                  <svg width="190" height="190" viewBox="0 0 190 190">
+                    <defs>
+                      <linearGradient id="gradP10" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#0A59F7"/><stop offset="100%" stop-color="#00C8FF"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="95" cy="95" r="80" stroke="#E8EEF8" stroke-width="14" fill="none"/>
+                    <circle id="p10-ring" cx="95" cy="95" r="80" stroke="url(#gradP10)" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="502.65" stroke-dashoffset="291.5" style="transition:stroke-dashoffset .5s ease;"/>
+                  </svg>
+                  <div class="br-center">
+                    <div class="br-num"><span id="p10-pct">42</span><small>%</small></div>
+                    <div class="br-label" id="p10-state">未在充电</div>
+                  </div>
+                </div>
+
+                <div class="charge-stats" style="margin-top:16px;">
+                  <div class="charge-stat"><div class="cs-k">当前功率</div><div class="cs-v blue" id="p10-power">0.0 <small style="font-size:11px;">kW</small></div></div>
+                  <div class="charge-stat"><div class="cs-k">已充时长</div><div class="cs-v" id="p10-elapsed">0 分</div></div>
+                  <div class="charge-stat" style="grid-column:span 2;"><div class="cs-k">预计充满</div><div class="cs-v green" id="p10-eta">--:--</div></div>
+                </div>
+
+                <div class="seg" id="p10-mode" style="margin-top:16px;width:100%;display:flex;">
+                  <button data-m="快充" style="flex:1;">快充 7.2kW</button>
+                  <button class="on" data-m="标准" style="flex:1;">标准 3.6kW</button>
+                </div>
+
+                <button class="m-btn" id="p10-toggle" style="margin-top:14px;">开始充电</button>
+                <div style="font-size:11px;color:#B0BACA;text-align:center;margin-top:10px;">状态联动：按钮 / 电量环 / 统计卡 同步刷新</div>
+              </div>
+            </div>
+            <div class="phone-homebar"><i></i></div>
+          </div>
+        </div>
+        <div class="op-hint"><span>🎮</span><div><b>操作提示：</b>点"开始充电"，观察电量环、功率、预计时间怎么联动；切换快充/标准，看充电速度的变化。感受一下"一个状态变量变化，多处 UI 自动刷新"。</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>🎉 全部 10 个项目完成！</b><span>你已经走完了鸿蒙应用开发的完整学习路径。接下来：装好 DevEco Studio，把每个项目亲手敲一遍吧。</span></div>
+    <button class="btn" onclick="HL.go('resources')">查看学习资源 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     关键词词典
+     ============================================================ -->
+<section class="page" id="page-dict">
+  <div class="page-hero">
+    <div class="hero-badge">学习工具 · 80+ 词条 · 可搜索</div>
+    <h1>关键词词典</h1>
+    <p class="hero-sub">代码里那些"看不懂的名词"，在这里用三样东西讲清楚：<b>一句人话</b>（它是什么）+ <b>一个 Web 对照</b>（你熟悉的东西）+ <b>一段迷你代码</b>（它长什么样）。找不到词就搜。</p>
+  </div>
+  <div class="card">
+    <div class="dict-toolbar">
+      <input id="dict-search" placeholder="🔍 搜索关键词… 例如：@State、router、flush、vp、ForEach">
+      <div class="seg" id="dict-seg">
+        <button class="on" data-cat="all">全部</button>
+        <button data-cat="decorator">装饰器</button>
+        <button data-cat="keyword">语法</button>
+        <button data-cat="component">组件</button>
+        <button data-cat="attr">属性方法</button>
+        <button data-cat="api">API</button>
+        <button data-cat="concept">概念</button>
+      </div>
+      <span class="dict-count" id="dict-count"></span>
+    </div>
+    <div class="dict-grid" id="dict-grid">
+      <div class="dict-empty"><span class="de-ico">📖</span>正在加载词典…</div>
+    </div>
+  </div>
+  <div class="next-bar">
+    <div class="nb-text"><b>查完了？</b><span>回对照页继续学，或者直接进项目里玩演示。</span></div>
+    <button class="btn" onclick="HL.go('web2harmony')">回对照页 →</button>
+  </div>
+</section>
+
+<!-- ============================================================
+     资源与术语
+     ============================================================ -->
+<section class="page" id="page-resources">
+  <div class="page-hero">
+    <div class="hero-badge">学习工具</div>
+    <h1>官方资源 · 社区 · 速查表</h1>
+    <p class="hero-sub">教材之外的"加餐"：遇到问题去哪里找答案、想深入学习去哪里挖宝藏。所有链接均为官方或官方社区来源。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🔗</span>官方学习资源（按推荐顺序）</div>
+    <div class="res-grid">
+      <a class="res-card" href="https://developer.huawei.com/consumer/cn/doc/" target="_blank" rel="noopener">
+        <div class="rc-ico">📖</div>
+        <h4>HarmonyOS 开发文档中心 <span style="font-size:11px;color:#8C97AB;">⭐ 最权威</span></h4>
+        <p>官方文档大本营：开发指南、API 参考、最佳实践、FAQ 全在这里。遇到任何"这个 API 怎么用"的问题，第一站就来这。</p>
+        <div class="rc-url">developer.huawei.com/consumer/cn/doc/</div>
+      </a>
+      <a class="res-card" href="https://developer.huawei.cn/consumer/cn/arkts/devstart/" target="_blank" rel="noopener">
+        <div class="rc-ico">🎓</div>
+        <h4>ArkTS 开发入门 <span style="font-size:11px;color:#8C97AB;">⭐ 本课程配套</span></h4>
+        <p>官方为 ArkTS 新手准备的入门路径：语言基础、编程规范、编码实践，还有配套视频和习题。</p>
+        <div class="rc-url">developer.huawei.cn/consumer/cn/arkts/devstart/</div>
+      </a>
+      <a class="res-card" href="https://developer.huawei.com/consumer/cn/deveco-studio/" target="_blank" rel="noopener">
+        <div class="rc-ico">🛠️</div>
+        <h4>DevEco Studio 下载 <span style="font-size:11px;color:#8C97AB;">（开发工具）</span></h4>
+        <p>官方 IDE 下载页：写代码、跑模拟器、调试真机都靠它。认准官网下载，避免第三方捆绑包。</p>
+        <div class="rc-url">developer.huawei.com/consumer/cn/deveco-studio/</div>
+      </a>
+      <a class="res-card" href="https://developer.huawei.com/consumer/cn/training/" target="_blank" rel="noopener">
+        <div class="rc-ico">📺</div>
+        <h4>华为开发者学堂</h4>
+        <p>官方的视频课程平台：从入门到进阶的免费课程，还有认证考试（想考证的同学重点看这里）。</p>
+        <div class="rc-url">developer.huawei.com/consumer/cn/training/</div>
+      </a>
+      <a class="res-card" href="https://developer.huawei.com/consumer/cn/forum/" target="_blank" rel="noopener">
+        <div class="rc-ico">💬</div>
+        <h4>开发者社区（论坛）</h4>
+        <p>遇到报错搜不到？把错误信息发到论坛，官方和社区开发者都会帮忙。提问前先搜一下，大概率有人踩过同样的坑。</p>
+        <div class="rc-url">developer.huawei.com/consumer/cn/forum/</div>
+      </a>
+      <a class="res-card" href="https://developer.huawei.com/consumer/cn/" target="_blank" rel="noopener">
+        <div class="rc-ico">🏠</div>
+        <h4>华为开发者官网首页</h4>
+        <p>总入口：新闻、活动、工具、生态市场（组件模板商店）都在这里分发。</p>
+        <div class="rc-url">developer.huawei.com/consumer/cn/</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">🐙</span>GitHub / Gitee 上的"宝藏仓库"</div>
+    <div class="card-sub">官方示例代码仓库——最好的学习方式之一就是"看别人怎么写"，跑起来、改一改、学以致用。</div>
+    <div class="res-grid">
+      <a class="res-card" href="https://github.com/openharmony/applications_app_samples" target="_blank" rel="noopener">
+        <div class="rc-ico">⭐</div>
+        <h4>applications_app_samples（官方示例集）</h4>
+        <p>OpenHarmony 官方示例应用仓库：UI 组件、数据管理、媒体、网络、分布式……按能力分类的完整示例工程。</p>
+        <div class="rc-url">github.com/openharmony/applications_app_samples</div>
+      </a>
+      <a class="res-card" href="https://gitee.com/openharmony/applications_app_samples" target="_blank" rel="noopener">
+        <div class="rc-ico">🚀</div>
+        <h4>Gitee 镜像（国内访问更快）</h4>
+        <p>同一份官方示例仓库的国内镜像。克隆慢的话用这个，或者直接下载单个示例工程 zip。</p>
+        <div class="rc-url">gitee.com/openharmony/applications_app_samples</div>
+      </a>
+      <a class="res-card" href="https://github.com/openharmony/docs" target="_blank" rel="noopener">
+        <div class="rc-ico">📚</div>
+        <h4>OpenHarmony docs（文档源码仓库）</h4>
+        <p>所有官方文档的 Markdown 源头。搜特定 API 用法时，在仓库里全局搜索比翻网页文档更快。</p>
+        <div class="rc-url">github.com/openharmony/docs</div>
+      </a>
+      <a class="res-card" href="https://gitee.com/openharmony" target="_blank" rel="noopener">
+        <div class="rc-ico">🧰</div>
+        <h4>OpenHarmony Gitee 组织主页</h4>
+        <p>官方在 Gitee 上的"总部"：内核、框架、工具链、示例……上百个仓库都在这里找。</p>
+        <div class="rc-url">gitee.com/openharmony</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">❓</span>新手 FAQ</div>
+    <div class="grid-faq" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="analytic"><b>Q1：要先把 TypeScript 学完再学鸿蒙吗？</b><br>不用。本课程路线就是"直接学 ArkTS"，语法边用边学。有任意一门语言基础（Python/C/Java 都行）会更轻松，零基础也能跟。</div>
+      <div class="analytic"><b>Q2：没有华为手机能学吗？</b><br>能。DevEco Studio 自带模拟器，足以完成本课程所有练习。后期想调试真机再考虑华为设备。</div>
+      <div class="analytic"><b>Q3：电脑什么配置够用？</b><br>内存 16GB 起步（8GB 会很卡），预留 20GB 以上磁盘装 SDK 和模拟器。</div>
+      <div class="analytic"><b>Q4：模拟器起不来怎么办？</b><br>常见原因：① 没开启电脑的虚拟化（BIOS 里开 VT-x/AMD-V）；② 磁盘空间不足；③ 杀毒软件拦截。按顺序排查。</div>
+      <div class="analytic"><b>Q5：代码报错看不懂怎么办？</b><br>三步走：① 把 <b>错误码/关键句</b>复制去官网文档搜索；② 论坛搜索同样错误；③ 还不行就去 GitHub 的 issues 或论坛发帖（附上完整报错和代码片段）。</div>
+      <div class="analytic"><b>Q6：学完这 10 个项目能做什么？</b><br>能独立开发常规的鸿蒙应用/元服务：界面、数据、网络、媒体、卡片全流程都覆盖了。接下来可以挑战官方示例仓库里的完整项目。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-icon">📚</span>完整术语速查（全课程版）</div>
+    <div class="term-grid" id="allTerms">
+      <div class="term-card"><h5>ArkTS</h5><p>鸿蒙应用开发语言，基于 TypeScript 强化静态检查，语法兼容 TS 生态。</p></div>
+      <div class="term-card"><h5>ArkUI</h5><p>声明式 UI 框架："描述界面 + 状态驱动"，数据变了自动刷新 UI。</p></div>
+      <div class="term-card"><h5>Stage 模型</h5><p>推荐的应用程序模型：UIAbility 管能力、WindowStage 管窗口、Page 管界面。</p></div>
+      <div class="term-card"><h5>UIAbility</h5><p>应用的基本功能单元，拥有完整生命周期（onCreate → … → onDestroy）。</p></div>
+      <div class="term-card"><h5>HAP</h5><p>HarmonyOS Ability Package，应用模块的安装包，一个应用可含多个 HAP。</p></div>
+      <div class="term-card"><h5>@Entry</h5><p>页面入口装饰器，标记路由能跳转到的"页面级"组件。</p></div>
+      <div class="term-card"><h5>@Component</h5><p>自定义组件装饰器，让一段 struct 变成可复用的 UI 积木。</p></div>
+      <div class="term-card"><h5>@State / @Prop / @Link</h5><p>状态管理三兄弟：自己的状态 / 单向拷贝 / 双向共享。</p></div>
+      <div class="term-card"><h5>@Builder</h5><p>把一小段 UI 封装成可复用的"UI 工厂函数"。</p></div>
+      <div class="term-card"><h5>ForEach</h5><p>列表渲染：把数组的每一项变成界面上的一个组件。</p></div>
+      <div class="term-card"><h5>router</h5><p>页面路由：pushUrl 跳页、back 返回、携带 params 传参。</p></div>
+      <div class="term-card"><h5>ArkData</h5><p>数据管理家族：Preferences（键值）、分布式键值数据库、关系型数据库 RDB。</p></div>
+      <div class="term-card"><h5>Preferences</h5><p>轻量键值存储：put / get / delete + <b>flush</b>（别忘了写盘）。</p></div>
+      <div class="term-card"><h5>PatternLock</h5><p>九宫格手势组件，onPatternComplete 回调返回经过的点编号数组。</p></div>
+      <div class="term-card"><h5>ArkWeb / Web 组件</h5><p>在应用内嵌网页；runJavaScript 应用调网页，javaScriptProxy 网页调应用。</p></div>
+      <div class="term-card"><h5>Form Kit</h5><p>服务卡片框架：桌面小窗口，onAddForm / onUpdateForm / onRemoveForm 生命周期。</p></div>
+      <div class="term-card"><h5>Network Kit</h5><p>网络服务：HTTP 请求（@ohos.net.http）、RCP、网络状态监听。记得声明 INTERNET 权限。</p></div>
+      <div class="term-card"><h5>Media Kit / AVPlayer</h5><p>音视频播放：idle → initialized → prepared → playing ⇄ paused → … 状态机管理。</p></div>
+      <div class="term-card"><h5>XComponent</h5><p>提供 Surface 的"画布组件"，视频画面等自绘内容渲染在它上面。</p></div>
+      <div class="term-card"><h5>PanGesture</h5><p>拖动/滑动手势：左右滑调进度、上下滑调音量，是播放器手势的基础。</p></div>
+      <div class="term-card"><h5>元服务</h5><p>免安装、即用即走的轻量应用形态，通过卡片直达服务。</p></div>
+      <div class="term-card"><h5>DevEco Studio</h5><p>官方一站式 IDE：开发、预览、模拟器、调试、上架。</p></div>
+    </div>
+  </div>
+
+  <div class="next-bar">
+    <div class="nb-text"><b>📌 最后一句</b><span>看会 ≠ 学会。把 10 个项目在 DevEco Studio 里亲手敲一遍，遇到问题按本页的"排查三步走"解决，你就真正入门鸿蒙了。</span></div>
+    <button class="btn" onclick="HL.go('home')">回到学习首页</button>
+  </div>
+</section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/app.js"></script>
+<script src="assets/demos-1.js"></script>
+<script src="assets/demos-2.js"></script>
+<script src="assets/demos-3.js"></script>
+<script src="assets/demos-4.js"></script>
+<script src="assets/demos-5.js"></script>
+</body>
+</html>
